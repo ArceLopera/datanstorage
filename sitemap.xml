@@ -2,12 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://arcelopera.github.io/datanstorage/</loc>
-         <lastmod>2025-03-11</lastmod>
+         <lastmod>2025-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db_basic/</loc>
-         <lastmod>2025-03-11</lastmod>
+         <lastmod>2025-03-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://arcelopera.github.io/datanstorage/db_sql/</loc>
+         <lastmod>2025-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
