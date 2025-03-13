@@ -1,5 +1,5 @@
 
-# sqlite
+## sqlite
 SQLite is an open-source library that provides a lightweight **disk-based** database.
 
 > 1. sqlite it  doesn’t require a separate server process
@@ -12,7 +12,8 @@ applications can use SQLite for internal data storage. It’s also possible to p
 
 To use the module, you must first create a `Connection` object that represents the database.
 
-a connection object's key methods are:
+A connection object's key methods are:
+
 1. `cursor()`
     returns a cursor object that can execute queries and retrieve results
 
@@ -27,14 +28,16 @@ a connection object's key methods are:
 
 in our example the data will be stored in a local file called `example.db`:
 
-
+``` python
 import sqlite3
 conn = sqlite3.connect('example.db')
+```
 
 > You can also supply the special name `:memory:` to create a database in RAM.
 
 Once you have a Connection, you can create a `Cursor` object and call its `execute()` method to perform SQL commands:
 
+``` python	
 c = conn.cursor()
 
 # Create table called stocks
@@ -54,10 +57,12 @@ conn.commit()
 # We can also close the connection if we are done with it.
 # Just be sure any changes have been committed or they will be lost.
 conn.close()
+```
 
 since we don't want to forget closing the connection, here's a nice utility function
 that opens a connection and returns a handy cursor object
 
+``` python
 from contextlib import contextmanager
 
 @contextmanager
@@ -68,9 +73,13 @@ def sqlite3_connect(database, *args, **kwargs):
         yield (conn, cursor)
     finally:
         conn.close()
+
+```
     
 
 and here's how `sqlite3_connect()` can be used: 
+
+``` python
 
 with sqlite3_connect('example.db') as [conn, c]:
 
@@ -82,6 +91,8 @@ with sqlite3_connect('example.db') as [conn, c]:
     
 # closing is done for us
 
+```
+
 Usually your SQL operations will need to use values from Python variables like people's names, and fields from forms.
 
 DO NOT assemble your SQL using Python’s string operations because doing so is insecure; it makes your program vulnerable to an SQL injection attack 
@@ -90,6 +101,7 @@ DO NOT assemble your SQL using Python’s string operations because doing so is 
 
 Instead, use the API’s parameter substitution - Put ? as a placeholder wherever you want to use a value, and then provide a tuple of values as the second argument to the cursor’s execute() method.
 
+``` python
 with sqlite3_connect('example.db') as [conn, c]:
 
     # DO NOT use str.format or f-strings or any other way to embed your variables into strings
@@ -108,18 +120,25 @@ with sqlite3_connect('example.db') as [conn, c]:
     
     conn.commit()
 
+```
+
 To retrieve data after executing a SELECT statement, you can treat the cursor as an iterator:
+
+``` python
 
 with sqlite3_connect('example.db') as [conn, c]:
     for row in c.execute('SELECT * FROM stocks ORDER BY price'):
         print(row)
 
+```
+
 > you can also call the cursor’s `fetchone()` method to retrieve a single matching row, or call `fetchall()` to get a list of the matching rows.
 
-## Table metadata
+### Table metadata
 
 We can access all the tables, their fields and their types using a simple query
 
+``` python
 with sqlite3_connect('example.db') as [conn, c]:
     rs = c.execute(
     """
@@ -132,7 +151,9 @@ with sqlite3_connect('example.db') as [conn, c]:
         print(name)
         print(sql)
 
-##  SQLite and Python types
+```
+
+###  SQLite and Python types
 SQLite natively supports the following types: `NULL`, `INTEGER`, `REAL`, `TEXT`, `BLOB`.
 
 The following Python types can thus be sent to SQLite without any problem:
@@ -148,7 +169,7 @@ The following Python types can thus be sent to SQLite without any problem:
 SQLite supports only a limited set of types natively. To use other Python types with SQLite, you must adapt them to one of the sqlite3 module’s supported types for SQLite: one of `NoneType`, `int`, `float`, `str`, `bytes`.
 
 
-## Custom types
+### Custom types
 
 there are two ways to read/write objects from a database:
 1. encoding the object into a text/blob column using some format (often JSON)
@@ -156,7 +177,7 @@ there are two ways to read/write objects from a database:
 
 with a DB-API based SQL interface like sqlite3, both of these methods can contain a lot of boiler plate code and so we will leave them out of thid tutorial
 
-# pyodbc
+## pyodbc
 > pip install pyodbc
 
 [pyodbc](https://github.com/mkleehammer/pyodbc/wiki) is a python-ODBC bridge library that also supports the DB-API 2.0 specification. and can connect to a vast number of databases, including MS SQL Server, MySQL, PostgreSQL, Oracel, Google Big Data, SQLite, among others.
@@ -167,11 +188,12 @@ with a DB-API based SQL interface like sqlite3, both of these methods can contai
 
 > ODBC accomplishes DBMS independence by using an ODBC driver as a translation layer between the application and the DBMS. The driver often has to be installed on the client operating system
 
-## Example connections
+### Example connections
 
 to connect to a DB, your often need to know the server/IP it is running on,
 the name of the datanase, and username/password to access the databse
 
+``` python
 import pyodbc
 
 server = "your_server"
@@ -179,8 +201,11 @@ db = "your_db"
 user = "your_user"
 password = "your_password"
 
+```
+
 ### MS SQL Server
 
+``` python
 connection_str = \
     'DRIVER={ODBC Driver 17 for SQL Server};' + \
     f'SERVER={server};'\
@@ -192,9 +217,11 @@ print(connection_str)
 # # Connect to MS SQL Server
 # conn = pyodbc.connect(connection_str)
 
+```
 
 ### MySQL
 
+``` python
 connection_str = \
     "DRIVER={MySQL ODBC 3.51 Driver};" \
     f"SERVER={server};" \
@@ -206,14 +233,16 @@ print(connection_str)
 # # Connect to MySQL
 # conn = pyodbc.connect(connection_str) 
 
+```
 
-## SQLite
+### SQLite
 
 > We don't to connect to SQLite via ODBC, because python can use these databases directly. <br>
 > however, if we want to show this as a demo, we need to install the SQLite ODBC driver
 
 > For Windows, you can get the SQLite ODBC driver [here](http://www.ch-werner.de/sqliteodbc/). Download "sqliteodbc.exe" if you are using 32-bit Python, or "sqliteodbc_w64.exe" if you are using 64-bit Python.
 
+``` python
 db="example.db"
 
 connection_str = \
@@ -226,3 +255,5 @@ c = conn.cursor()
 
 for row in c.execute('SELECT * FROM stocks ORDER BY price'):
     print(row)
+
+```

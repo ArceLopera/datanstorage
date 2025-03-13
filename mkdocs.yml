@@ -88,4 +88,6 @@ extra_javascript:
 # Page tree
 nav:
   - Home: index.md
-  - Basic: db_basic.md
+  - Basic: 
+      - General: db_basic.md
+      - SQL: db_sql.md
