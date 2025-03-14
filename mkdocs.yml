@@ -91,3 +91,4 @@ nav:
   - Basic: 
       - General: db_basic.md
       - SQL: db_sql.md
+      - PostgreSQL: db_postgresql.md
