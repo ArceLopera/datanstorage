@@ -92,3 +92,5 @@ nav:
       - General: db_basic.md
       - SQL: db_sql.md
       - PostgreSQL: db_postgresql.md
+  - Ai:
+      - Frameworks: ai_frameworks.md 
