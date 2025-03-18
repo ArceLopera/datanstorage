@@ -2,27 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://arcelopera.github.io/datanstorage/</loc>
-         <lastmod>2025-03-14</lastmod>
+         <lastmod>2025-03-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/ai_frameworks/</loc>
-         <lastmod>2025-03-14</lastmod>
+         <lastmod>2025-03-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db_basic/</loc>
-         <lastmod>2025-03-14</lastmod>
+         <lastmod>2025-03-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db_postgresql/</loc>
-         <lastmod>2025-03-14</lastmod>
+         <lastmod>2025-03-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://arcelopera.github.io/datanstorage/db_redis/</loc>
+         <lastmod>2025-03-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db_sql/</loc>
-         <lastmod>2025-03-14</lastmod>
+         <lastmod>2025-03-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
