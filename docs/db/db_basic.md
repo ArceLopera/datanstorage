@@ -1,6 +1,6 @@
 ## How to choose DB
 
-![DB](./img/db1.png)
+![DB](../img/db1.png)
 
 ### Integration
 The most important thing to consider while choosing the right database is what system you need to integrate together? Make sure that your database management system can be integrated with other tools and services within your project. Different technologies have different connectors for different other technologies. For example, if you have a big analytics job that’s currently running an Apache spark then probably you want to limit yourself to external databases that can connect easily to apache spark.
@@ -16,7 +16,7 @@ Think about the supports you might need for your database. Do you have the in-ho
 ### CAP Consideration
 CAP stands for Consistency, Availability, and Partition tolerance. The theorem states that you cannot achieve all the properties at the best level in a single database, as there are natural trade offs between the items. You can only pick two out of three at a time and that totally depends on your prioritize based on your requirements. For example, if your system needs to be available and partition tolerant, then you must be willing to accept some latency in your consistency requirements. Traditional relational databases are a natural fit for the CA side whereas Non-relational database engines mostly satisfy AP and CP requirements.
 
-![DB](./img/db2.png)
+![DB](../img/db2.png)
 
 **Consistency** means that any read request will return the most recent write. Data consistency is usually “strong” for SQL databases and for NoSQL database consistency may be anything from “eventual” to “strong”.
 
@@ -32,12 +32,12 @@ You have a variety of options available in relational (MySQL, PostgreSQL, Oracle
 
 Databases through two lenses: access characteristics and the pattern of the data being stored.
 
-![DB](./img/db3.jpg)
+![DB](../img/db3.jpg)
 
 ### Relational
 With large spans of usage, relational databases are still the dominant database type today. A relational database is self-describing because it enables developers to define the database's schema as well as relations and constraints between rows and tables in the database. Developers rely on the functionality of the relational database and not the application code to enforce the schema and preserve the referential integrity of the data within the database. Typical use cases for a relational database include web and mobile applications, enterprise applications, and online gaming. Various flavors or versions of Amazon RDS and Amazon Aurora are used by startups for high-performance and scalable applications on AWS. Both RDS and Aurora are fully managed, scalable systems.
 
-![DB](./img/db4.png)
+![DB](../img/db4.png)
 
 #### MySQL
 Relational (+Document since 5.7.8)
@@ -68,7 +68,7 @@ Amazon DynamoDB is a managed key-value and document database that delivers singl
 
 Key-value DBs store data in pairs, each containing a unique ID and a data value. These DBs provide a flexible storage structure since values can store any amount of unstructured data. 𝗨𝘀𝗲 𝗰𝗮𝘀𝗲𝘀: Session management, user preferences, and product recommendations. 𝗘𝘅𝗮𝗺𝗽𝗹𝗲𝘀: Amazon DynamoDB, Azure Cosmos DB.
 
-![DB](./img/db5.png)
+![DB](../img/db5.png)
 
 #### Amazon DynamoDB
 

@@ -10,7 +10,7 @@ Mastering databases and storage systems isn’t about remembering every syntax d
 
 |  Basic Topics |  Advanced Topics |
 |:-------------:|:----------------:|
-|     [Basics](db_basic.md)   |    |
+|     [Basics](db/db_basic.md)   |    |
 |    |   |
 |       |       |
 |          |        |

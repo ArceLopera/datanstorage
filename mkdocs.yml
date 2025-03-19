@@ -89,9 +89,15 @@ extra_javascript:
 nav:
   - Home: index.md
   - Basic: 
-      - General: db_basic.md
-      - SQL: db_sql.md
-      - PostgreSQL: db_postgresql.md
-      - Redis: db_redis.md
+      - General: db/db_basic.md
+      - SQL: 
+          - General: db/sql/db_sql.md
+          - Install: db/sql/db_sqlinstall.md
+          - ODBC: db/sql/db_odbc.md
+          - SQLite 🛢️: db/sql/db_sqlite.md
+          - MySQL🐬: db/sql/db_mysql.md
+          - PostgreSQL🐘: db/sql/db_postgresql.md
+      - NoSQL:
+          - Redis🔥: db/nosql/db_redis.md
   - Ai:
       - Frameworks: ai_frameworks.md 

@@ -12,21 +12,21 @@
         <meta name="author" content="ArceLopera">
       
       
-        <link rel="canonical" href="https://arcelopera.github.io/datanstorage/db_sql/">
+        <link rel="canonical" href="https://arcelopera.github.io/datanstorage/db/sql/db_sqlite/">
       
-      <link rel="icon" href="..">
+      <link rel="icon" href="../../..">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
-        <title>SQL - Data n Storage Refresher</title>
+        <title>SQLite 🛢️ - Data n Storage Refresher</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.c382b1dc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.c382b1dc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cc9b2e1e.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -41,7 +41,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sqlite" class="md-skip">
+        <a href="#table-metadata" class="md-skip">
           Skip to content
         </a>
       
@@ -83,7 +83,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Data n Storage Refresher" class="md-header__button md-logo" aria-label="Data n Storage Refresher" data-md-component="logo">
+    <a href="../../.." title="Data n Storage Refresher" class="md-header__button md-logo" aria-label="Data n Storage Refresher" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SQL
+              SQLite 🛢️
             
           </span>
         </div>
@@ -199,7 +199,7 @@
 
 
   <li class="md-tabs__item">
-    <a href=".." class="md-tabs__link">
+    <a href="../../.." class="md-tabs__link">
       Home
     </a>
   </li>
@@ -216,7 +216,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../db_basic/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../db_basic/" class="md-tabs__link md-tabs__link--active">
         Basic
       </a>
     </li>
@@ -232,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../ai_frameworks/" class="md-tabs__link">
+      <a href="../../../ai_frameworks/" class="md-tabs__link">
         Ai
       </a>
     </li>
@@ -260,7 +260,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Data n Storage Refresher" class="md-nav__button md-logo" aria-label="Data n Storage Refresher" data-md-component="logo">
+    <a href="../../.." title="Data n Storage Refresher" class="md-nav__button md-logo" aria-label="Data n Storage Refresher" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -291,7 +291,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -334,8 +334,78 @@
   
   
     <li class="md-nav__item">
-      <a href="../db_basic/" class="md-nav__link">
+      <a href="../../db_basic/" class="md-nav__link">
         General
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          SQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SQL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          SQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db_sql/" class="md-nav__link">
+        General
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db_sqlinstall/" class="md-nav__link">
+        Install
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db_odbc/" class="md-nav__link">
+        ODBC
       </a>
     </li>
   
@@ -356,12 +426,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          SQL
+          SQLite 🛢️
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        SQL
+        SQLite 🛢️
       </a>
       
         
@@ -378,77 +448,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sqlite" class="md-nav__link">
-    sqlite
-  </a>
-  
-    <nav class="md-nav" aria-label="sqlite">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#table-metadata" class="md-nav__link">
     Table metadata
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#sqlite-and-python-types" class="md-nav__link">
     SQLite and Python types
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#custom-types" class="md-nav__link">
     Custom types
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pyodbc" class="md-nav__link">
-    pyodbc
-  </a>
-  
-    <nav class="md-nav" aria-label="pyodbc">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-connections" class="md-nav__link">
-    Example connections
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ms-sql-server" class="md-nav__link">
-    MS SQL Server
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mysql" class="md-nav__link">
-    MySQL
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sqlite_1" class="md-nav__link">
-    SQLite
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -467,8 +483,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../db_postgresql/" class="md-nav__link">
-        PostgreSQL
+      <a href="../db_mysql/" class="md-nav__link">
+        MySQL🐬
       </a>
     </li>
   
@@ -481,9 +497,63 @@
   
   
     <li class="md-nav__item">
-      <a href="../db_redis/" class="md-nav__link">
-        Redis
+      <a href="../db_postgresql/" class="md-nav__link">
+        PostgreSQL🐘
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" data-md-state="indeterminate" type="checkbox" id="__nav_2_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          NoSQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NoSQL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          NoSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nosql/db_redis/" class="md-nav__link">
+        Redis🔥
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -529,7 +599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ai_frameworks/" class="md-nav__link">
+      <a href="../../../ai_frameworks/" class="md-nav__link">
         Frameworks
       </a>
     </li>
@@ -568,77 +638,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sqlite" class="md-nav__link">
-    sqlite
-  </a>
-  
-    <nav class="md-nav" aria-label="sqlite">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#table-metadata" class="md-nav__link">
     Table metadata
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#sqlite-and-python-types" class="md-nav__link">
     SQLite and Python types
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#custom-types" class="md-nav__link">
     Custom types
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pyodbc" class="md-nav__link">
-    pyodbc
-  </a>
-  
-    <nav class="md-nav" aria-label="pyodbc">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-connections" class="md-nav__link">
-    Example connections
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ms-sql-server" class="md-nav__link">
-    MS SQL Server
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mysql" class="md-nav__link">
-    MySQL
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sqlite_1" class="md-nav__link">
-    SQLite
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -656,9 +672,8 @@
                 
 
 
-  <h1>SQL</h1>
+  <h1>SQLite 🛢️</h1>
 
-<h2 id="sqlite">sqlite</h2>
 <p>SQLite is an open-source library that provides a lightweight <strong>disk-based</strong> database.</p>
 <blockquote>
 <ol>
@@ -823,69 +838,6 @@ that opens a connection and returns a handy cursor object</p>
 1. encoding the object into a text/blob column using some format (often JSON)
 2. converting objects into tables rows (respecting foreign keys as potential links to other objects)</p>
 <p>with a DB-API based SQL interface like sqlite3, both of these methods can contain a lot of boiler plate code and so we will leave them out of thid tutorial</p>
-<h2 id="pyodbc">pyodbc</h2>
-<blockquote>
-<p>pip install pyodbc</p>
-</blockquote>
-<p><a href="https://github.com/mkleehammer/pyodbc/wiki">pyodbc</a> is a python-ODBC bridge library that also supports the DB-API 2.0 specification. and can connect to a vast number of databases, including MS SQL Server, MySQL, PostgreSQL, Oracel, Google Big Data, SQLite, among others.</p>
-<blockquote>
-<p>supporting the DB-API 2.0 means that code that uses pyodbc can look almost identical to code using SQLite</p>
-<p>Open Database Connectivity (ODBC) is the standard that allows using identical (or at least very similar) SQL statements for querying different Databases (DBMS). The designers of ODBC aimed to make it independent of database systems and operating systems. </p>
-<p>ODBC accomplishes DBMS independence by using an ODBC driver as a translation layer between the application and the DBMS. The driver often has to be installed on the client operating system</p>
-</blockquote>
-<h3 id="example-connections">Example connections</h3>
-<p>to connect to a DB, your often need to know the server/IP it is running on,
-the name of the datanase, and username/password to access the databse</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pyodbc</span>
-
-<span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;your_server&quot;</span>
-<span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;your_db&quot;</span>
-<span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;your_user&quot;</span>
-<span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;your_password&quot;</span>
-</code></pre></div>
-<h3 id="ms-sql-server">MS SQL Server</h3>
-<div class="highlight"><pre><span></span><code><span class="n">connection_str</span> <span class="o">=</span> \
-    <span class="s1">&#39;DRIVER={ODBC Driver 17 for SQL Server};&#39;</span> <span class="o">+</span> \
-    <span class="sa">f</span><span class="s1">&#39;SERVER=</span><span class="si">{</span><span class="n">server</span><span class="si">}</span><span class="s1">;&#39;</span>\
-    <span class="sa">f</span><span class="s1">&#39;DATABASE=</span><span class="si">{</span><span class="n">db</span><span class="si">}</span><span class="s1">;&#39;</span>\
-    <span class="sa">f</span><span class="s1">&#39;UID=</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s1">;&#39;</span> \
-    <span class="sa">f</span><span class="s1">&#39;PWD=</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s1">&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">connection_str</span><span class="p">)</span>
-
-<span class="c1"># # Connect to MS SQL Server</span>
-<span class="c1"># conn = pyodbc.connect(connection_str)</span>
-</code></pre></div>
-<h3 id="mysql">MySQL</h3>
-<div class="highlight"><pre><span></span><code><span class="n">connection_str</span> <span class="o">=</span> \
-    <span class="s2">&quot;DRIVER={MySQL ODBC 3.51 Driver};&quot;</span> \
-    <span class="sa">f</span><span class="s2">&quot;SERVER=</span><span class="si">{</span><span class="n">server</span><span class="si">}</span><span class="s2">;&quot;</span> \
-    <span class="sa">f</span><span class="s2">&quot;DATABASE=</span><span class="si">{</span><span class="n">db</span><span class="si">}</span><span class="s2">;&quot;</span>\
-    <span class="sa">f</span><span class="s2">&quot;UID=</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">;&quot;</span>\
-    <span class="sa">f</span><span class="s2">&quot;PASSWORD=</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">;&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">connection_str</span><span class="p">)</span>
-
-<span class="c1"># # Connect to MySQL</span>
-<span class="c1"># conn = pyodbc.connect(connection_str) </span>
-</code></pre></div>
-<h3 id="sqlite_1">SQLite</h3>
-<blockquote>
-<p>We don't to connect to SQLite via ODBC, because python can use these databases directly. <br>
-however, if we want to show this as a demo, we need to install the SQLite ODBC driver</p>
-<p>For Windows, you can get the SQLite ODBC driver <a href="http://www.ch-werner.de/sqliteodbc/">here</a>. Download "sqliteodbc.exe" if you are using 32-bit Python, or "sqliteodbc_w64.exe" if you are using 64-bit Python.</p>
-</blockquote>
-<div class="highlight"><pre><span></span><code><span class="n">db</span><span class="o">=</span><span class="s2">&quot;example.db&quot;</span>
-
-<span class="n">connection_str</span> <span class="o">=</span> \
-    <span class="s2">&quot;Driver=SQLite3 ODBC Driver;&quot;</span> \
-    <span class="sa">f</span><span class="s2">&quot;Database=</span><span class="si">{</span><span class="n">db</span><span class="si">}</span><span class="s2">&quot;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">connection_str</span><span class="p">)</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">connection_str</span><span class="p">)</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM stocks ORDER BY price&#39;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-</code></pre></div>
 
               
             </article>
@@ -899,7 +851,7 @@ however, if we want to show this as a demo, we need to install the SQLite ODBC d
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../db_basic/" class="md-footer__link md-footer__link--prev" aria-label="Previous: General" rel="prev">
+        <a href="../db_odbc/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ODBC" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -908,20 +860,20 @@ however, if we want to show this as a demo, we need to install the SQLite ODBC d
               <span class="md-footer__direction">
                 Previous
               </span>
-              General
+              ODBC
             </div>
           </div>
         </a>
       
       
         
-        <a href="../db_postgresql/" class="md-footer__link md-footer__link--next" aria-label="Next: PostgreSQL" rel="next">
+        <a href="../db_mysql/" class="md-footer__link md-footer__link--next" aria-label="Next: MySQL🐬" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              PostgreSQL
+              MySQL🐬
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -992,10 +944,10 @@ however, if we want to show this as a demo, we need to install the SQLite ODBC d
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.expand"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.a6c66575.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a6c66575.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
       
