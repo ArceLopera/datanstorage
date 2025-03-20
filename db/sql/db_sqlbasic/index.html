@@ -12,14 +12,14 @@
         <meta name="author" content="ArceLopera">
       
       
-        <link rel="canonical" href="https://arcelopera.github.io/datanstorage/db/sql/db_sqlinstall/">
+        <link rel="canonical" href="https://arcelopera.github.io/datanstorage/db/sql/db_sqlbasic/">
       
       <link rel="icon" href="../../..">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
-        <title>General - Data n Storage Refresher</title>
+        <title>Basic SQL Commands - Data n Storage Refresher</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installing-setting-up-sql" class="md-skip">
+        <a href="#basic-sql-commands" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              General
+              Basic SQL Commands
             
           </span>
         </div>
@@ -388,14 +388,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_2" type="checkbox" id="__nav_2_2_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_2" data-md-state="indeterminate" type="checkbox" id="__nav_2_2_2" checked>
       
       
       
@@ -416,75 +414,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          General
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../db_sqlinstall/" class="md-nav__link">
         General
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#installing-setting-up-sql" class="md-nav__link">
-    Installing &amp; Setting Up SQL
-  </a>
-  
-    <nav class="md-nav" aria-label="Installing &amp; Setting Up SQL">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-sqlite-lightweight-no-server-needed" class="md-nav__link">
-    Installing SQLite (Lightweight, No Server Needed)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-mysql-popular-for-web-apps" class="md-nav__link">
-    Installing MySQL (Popular for Web Apps)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-postgresql-advanced-scalable" class="md-nav__link">
-    Installing PostgreSQL (Advanced &amp; Scalable)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -557,12 +491,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" data-md-state="indeterminate" type="checkbox" id="__nav_2_2_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" checked>
       
       
       
@@ -583,11 +519,125 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../db_sqlbasic/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Basic SQL Commands
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Basic SQL Commands
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-sql-commands" class="md-nav__link">
+    Basic SQL Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-tables" class="md-nav__link">
+    Working with Tables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtering-data" class="md-nav__link">
+    Filtering Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-joins-relationships" class="md-nav__link">
+    SQL Joins &amp; Relationships
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grouping-aggregation" class="md-nav__link">
+    Grouping &amp; Aggregation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subqueries-ctes-common-table-expressions" class="md-nav__link">
+    Subqueries &amp; CTEs (Common Table Expressions)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing-performance-optimization" class="md-nav__link">
+    Indexing &amp; Performance Optimization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transactions-acid-principles" class="md-nav__link">
+    Transactions &amp; ACID Principles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-sql-features" class="md-nav__link">
+    Advanced SQL Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stored-procedures-triggers" class="md-nav__link">
+    Stored Procedures &amp; Triggers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nosql-features-in-sql-databases" class="md-nav__link">
+    NoSQL Features in SQL Databases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-best-practices" class="md-nav__link">
+    Security &amp; Best Practices
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -733,36 +783,86 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installing-setting-up-sql" class="md-nav__link">
-    Installing &amp; Setting Up SQL
-  </a>
-  
-    <nav class="md-nav" aria-label="Installing &amp; Setting Up SQL">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-sqlite-lightweight-no-server-needed" class="md-nav__link">
-    Installing SQLite (Lightweight, No Server Needed)
+  <a href="#basic-sql-commands" class="md-nav__link">
+    Basic SQL Commands
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-mysql-popular-for-web-apps" class="md-nav__link">
-    Installing MySQL (Popular for Web Apps)
+      
+        <li class="md-nav__item">
+  <a href="#working-with-tables" class="md-nav__link">
+    Working with Tables
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-postgresql-advanced-scalable" class="md-nav__link">
-    Installing PostgreSQL (Advanced &amp; Scalable)
+      
+        <li class="md-nav__item">
+  <a href="#filtering-data" class="md-nav__link">
+    Filtering Data
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#sql-joins-relationships" class="md-nav__link">
+    SQL Joins &amp; Relationships
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grouping-aggregation" class="md-nav__link">
+    Grouping &amp; Aggregation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subqueries-ctes-common-table-expressions" class="md-nav__link">
+    Subqueries &amp; CTEs (Common Table Expressions)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing-performance-optimization" class="md-nav__link">
+    Indexing &amp; Performance Optimization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transactions-acid-principles" class="md-nav__link">
+    Transactions &amp; ACID Principles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-sql-features" class="md-nav__link">
+    Advanced SQL Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stored-procedures-triggers" class="md-nav__link">
+    Stored Procedures &amp; Triggers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nosql-features-in-sql-databases" class="md-nav__link">
+    NoSQL Features in SQL Databases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-best-practices" class="md-nav__link">
+    Security &amp; Best Practices
+  </a>
   
 </li>
       
@@ -780,40 +880,83 @@
                 
 
 
-  <h1>General</h1>
+  <h1>Basic SQL Commands</h1>
 
-<h2 id="installing-setting-up-sql"><strong>Installing &amp; Setting Up SQL</strong></h2>
-<h3 id="installing-sqlite-lightweight-no-server-needed"><strong> Installing SQLite (Lightweight, No Server Needed)</strong></h3>
-<p>💡 <strong>SQLite</strong> is great for local development and small applications.<br />
-- Install SQLite:<br />
-  <div class="highlight"><pre><span></span><code>sudo apt install sqlite3  <span class="c1"># Linux</span>
-brew install sqlite3  <span class="c1"># macOS</span>
-</code></pre></div>
-- Open SQLite CLI:<br />
-  <div class="highlight"><pre><span></span><code>sqlite3 my_database.db
-</code></pre></div>
-- Verify installation:<br />
-  <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">sqlite_version</span><span class="p">();</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="installing-mysql-popular-for-web-apps"><strong> Installing MySQL (Popular for Web Apps)</strong></h3>
+<h2 id="basic-sql-commands"><strong> Basic SQL Commands</strong></h2>
 <ul>
-<li>Install MySQL Server:<br />
-  <div class="highlight"><pre><span></span><code>sudo apt install mysql-server  <span class="c1"># Linux</span>
-brew install mysql  <span class="c1"># macOS</span>
-</code></pre></div></li>
-<li>Start MySQL and login:<br />
-  <div class="highlight"><pre><span></span><code>mysql -u root -p
-</code></pre></div></li>
+<li><code>SELECT</code> – Retrieving data  </li>
+<li><code>INSERT</code> – Adding records  </li>
+<li><code>UPDATE</code> – Modifying data  </li>
+<li><code>DELETE</code> – Removing records  </li>
 </ul>
-<h3 id="installing-postgresql-advanced-scalable"><strong> Installing PostgreSQL (Advanced &amp; Scalable)</strong></h3>
+<h2 id="working-with-tables"><strong> Working with Tables</strong></h2>
 <ul>
-<li>Install PostgreSQL:<br />
-  <div class="highlight"><pre><span></span><code>sudo apt install postgresql  <span class="c1"># Linux</span>
-brew install postgresql  <span class="c1"># macOS</span>
-</code></pre></div></li>
-<li>Start PostgreSQL and login:<br />
-  <div class="highlight"><pre><span></span><code>psql -U postgres
-</code></pre></div></li>
+<li><code>CREATE TABLE</code> – Defining structure  </li>
+<li><code>ALTER TABLE</code> – Modifying schema  </li>
+<li><code>DROP TABLE</code> – Deleting a table  </li>
+<li>Data Types (<code>INT</code>, <code>VARCHAR</code>, <code>DATE</code>, etc.)  </li>
+</ul>
+<h2 id="filtering-data"><strong> Filtering Data</strong></h2>
+<ul>
+<li><code>WHERE</code> – Conditional filtering  </li>
+<li><code>ORDER BY</code> – Sorting results  </li>
+<li><code>LIMIT</code> – Restricting output  </li>
+<li><code>DISTINCT</code> – Removing duplicates  </li>
+</ul>
+<h2 id="sql-joins-relationships"><strong> SQL Joins &amp; Relationships</strong></h2>
+<ul>
+<li><code>INNER JOIN</code> – Matching records  </li>
+<li><code>LEFT JOIN</code> / <code>RIGHT JOIN</code> – Including unmatched records  </li>
+<li><code>FULL OUTER JOIN</code> – Combining everything  </li>
+<li><code>SELF JOIN</code> – Joining a table to itself  </li>
+<li><code>CROSS JOIN</code> – Cartesian product  </li>
+</ul>
+<h2 id="grouping-aggregation"><strong> Grouping &amp; Aggregation</strong></h2>
+<ul>
+<li><code>GROUP BY</code> – Grouping data  </li>
+<li><code>HAVING</code> – Filtering grouped results  </li>
+<li>Aggregate Functions (<code>COUNT()</code>, <code>SUM()</code>, <code>AVG()</code>, <code>MIN()</code>, <code>MAX()</code>)  </li>
+</ul>
+<h2 id="subqueries-ctes-common-table-expressions"><strong> Subqueries &amp; CTEs (Common Table Expressions)</strong></h2>
+<ul>
+<li>Subqueries (<code>SELECT</code> inside <code>SELECT</code>)  </li>
+<li>CTEs (<code>WITH</code> clause for readability)  </li>
+<li>Recursive CTEs  </li>
+</ul>
+<h2 id="indexing-performance-optimization"><strong> Indexing &amp; Performance Optimization</strong></h2>
+<ul>
+<li>What is an Index?  </li>
+<li>Creating &amp; Using Indexes (<code>CREATE INDEX</code>)  </li>
+<li>Understanding Execution Plans (<code>EXPLAIN</code>)  </li>
+</ul>
+<h2 id="transactions-acid-principles"><strong> Transactions &amp; ACID Principles</strong></h2>
+<ul>
+<li><code>BEGIN</code>, <code>COMMIT</code>, <code>ROLLBACK</code> – Managing transactions  </li>
+<li>ACID Properties (Atomicity, Consistency, Isolation, Durability)  </li>
+</ul>
+<h2 id="advanced-sql-features"><strong> Advanced SQL Features</strong></h2>
+<ul>
+<li><code>CASE</code> Statements – Conditional logic  </li>
+<li>Window Functions (<code>RANK()</code>, <code>DENSE_RANK()</code>, <code>ROW_NUMBER()</code>)  </li>
+<li>Pivoting &amp; Unpivoting Data  </li>
+<li>JSON Handling (<code>JSONB</code>, <code>-&gt;</code>, <code>-&gt;&gt;</code>, <code>#&gt;</code> in PostgreSQL)  </li>
+</ul>
+<h2 id="stored-procedures-triggers"><strong> Stored Procedures &amp; Triggers</strong></h2>
+<ul>
+<li>Creating &amp; Executing Stored Procedures  </li>
+<li>Using Triggers for Automation  </li>
+<li>Cursors &amp; Loops  </li>
+</ul>
+<h2 id="nosql-features-in-sql-databases"><strong> NoSQL Features in SQL Databases</strong></h2>
+<ul>
+<li>Working with JSON &amp; XML  </li>
+<li>Full-Text Search (<code>tsvector</code>, <code>MATCH AGAINST</code>)  </li>
+</ul>
+<h2 id="security-best-practices"><strong> Security &amp; Best Practices</strong></h2>
+<ul>
+<li>SQL Injection Prevention  </li>
+<li>Role-Based Access Control (<code>GRANT</code>, <code>REVOKE</code>)  </li>
+<li>Data Encryption &amp; Hashing (<code>MD5()</code>, <code>SHA256()</code>)  </li>
 </ul>
 <hr />
 
@@ -829,7 +972,7 @@ brew install postgresql  <span class="c1"># macOS</span>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../db_sql/" class="md-footer__link md-footer__link--prev" aria-label="Previous: General" rel="prev">
+        <a href="../db_postgresql/" class="md-footer__link md-footer__link--prev" aria-label="Previous: PostgreSQL🐘" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -838,20 +981,20 @@ brew install postgresql  <span class="c1"># macOS</span>
               <span class="md-footer__direction">
                 Previous
               </span>
-              General
+              PostgreSQL🐘
             </div>
           </div>
         </a>
       
       
         
-        <a href="../db_odbc/" class="md-footer__link md-footer__link--next" aria-label="Next: ODBC" rel="next">
+        <a href="../../nosql/db_redis/" class="md-footer__link md-footer__link--next" aria-label="Next: Redis🔥" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              ODBC
+              Redis🔥
             </div>
           </div>
           <div class="md-footer__button md-icon">
