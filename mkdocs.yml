@@ -100,6 +100,7 @@ nav:
               - PostgreSQL🐘: db/sql/db_postgresql.md
           - Basic:
               - Basic SQL Commands: db/sql/db_sqlbasic.md
+              - JOIN: db/sql/db_sqljoin.md
       - NoSQL:
           - Redis🔥: db/nosql/db_redis.md
   - Ai:
