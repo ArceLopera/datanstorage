@@ -1,0 +1,1737 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Data n Storage refresher.">
+      
+      
+        <meta name="author" content="ArceLopera">
+      
+      
+        <link rel="canonical" href="https://arcelopera.github.io/datanstorage/db/sql/db_sqladv/">
+      
+      <link rel="icon" href="../../..">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
+    
+    
+      
+        <title>More - Data n Storage Refresher</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.c382b1dc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#subqueries-ctes-common-table-expressions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Data n Storage Refresher" class="md-header__button md-logo" aria-label="Data n Storage Refresher" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Data n Storage Refresher
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              More
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ArceLopera/datanstorage" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ArceLopera/datanstorage
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../db_basic/" class="md-tabs__link md-tabs__link--active">
+        Basic
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../ai_frameworks/" class="md-tabs__link">
+        Ai
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Data n Storage Refresher" class="md-nav__button md-logo" aria-label="Data n Storage Refresher" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Data n Storage Refresher
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ArceLopera/datanstorage" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ArceLopera/datanstorage
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basic" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Basic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../db_basic/" class="md-nav__link">
+        General
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          SQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SQL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          SQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db_sql/" class="md-nav__link">
+        General
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_2" data-md-state="indeterminate" type="checkbox" id="__nav_2_2_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_2">
+          Install
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Install" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Install
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db_sqlinstall/" class="md-nav__link">
+        General
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db_odbc/" class="md-nav__link">
+        ODBC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db_sqlite/" class="md-nav__link">
+        SQLite 🛢️
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db_mysql/" class="md-nav__link">
+        MySQL🐬
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db_postgresql/" class="md-nav__link">
+        PostgreSQL🐘
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_3">
+          Basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basic" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Basic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db_sqlbasic/" class="md-nav__link">
+        Basic SQL Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db_sqljoin/" class="md-nav__link">
+        JOIN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          More
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        More
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#subqueries-ctes-common-table-expressions" class="md-nav__link">
+    Subqueries &amp; CTEs (Common Table Expressions)
+  </a>
+  
+    <nav class="md-nav" aria-label="Subqueries &amp; CTEs (Common Table Expressions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subqueries-select-inside-select" class="md-nav__link">
+    Subqueries (SELECT inside SELECT)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctes-with-clause-for-readability" class="md-nav__link">
+    CTEs (WITH clause for readability)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursive-ctes" class="md-nav__link">
+    Recursive CTEs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing-performance-optimization" class="md-nav__link">
+    Indexing &amp; Performance Optimization
+  </a>
+  
+    <nav class="md-nav" aria-label="Indexing &amp; Performance Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-index" class="md-nav__link">
+    What is an Index?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-using-indexes-create-index" class="md-nav__link">
+    Creating &amp; Using Indexes (CREATE INDEX)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-execution-plans-explain" class="md-nav__link">
+    Understanding Execution Plans (EXPLAIN)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transactions-acid-principles" class="md-nav__link">
+    Transactions &amp; ACID Principles
+  </a>
+  
+    <nav class="md-nav" aria-label="Transactions &amp; ACID Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#begin-commit-rollback-savepoint-managing-transactions" class="md-nav__link">
+    BEGIN, COMMIT, ROLLBACK, SAVEPOINT – Managing Transactions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#begin-vs-begin-transaction" class="md-nav__link">
+    BEGIN vs. BEGIN TRANSACTION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-transaction-control-commands" class="md-nav__link">
+    Summary of Transaction Control Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-transferring-funds-between-accounts" class="md-nav__link">
+    Scenario: Transferring Funds Between Accounts
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario: Transferring Funds Between Accounts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql-transaction-example" class="md-nav__link">
+    SQL Transaction Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-in-sql" class="md-nav__link">
+    What is @@ in SQL?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acid-properties-atomicity-consistency-isolation-durability" class="md-nav__link">
+    ACID Properties (Atomicity, Consistency, Isolation, Durability)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-sql-features" class="md-nav__link">
+    Advanced SQL Features
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced SQL Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-statements-conditional-logic" class="md-nav__link">
+    CASE Statements – Conditional Logic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#window-functions-rank-dense_rank-row_number" class="md-nav__link">
+    Window Functions (RANK(), DENSE_RANK(), ROW_NUMBER())
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pivoting-unpivoting-data" class="md-nav__link">
+    Pivoting &amp; Unpivoting Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-handling-jsonb-in-postgresql" class="md-nav__link">
+    JSON Handling (JSONB, -&gt;, -&gt;&gt;, #&gt; in PostgreSQL)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stored-procedures-triggers" class="md-nav__link">
+    Stored Procedures &amp; Triggers
+  </a>
+  
+    <nav class="md-nav" aria-label="Stored Procedures &amp; Triggers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-executing-stored-procedures" class="md-nav__link">
+    Creating &amp; Executing Stored Procedures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-triggers-for-automation" class="md-nav__link">
+    Using Triggers for Automation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cursors-loops" class="md-nav__link">
+    Cursors &amp; Loops
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nosql-features-in-sql-databases" class="md-nav__link">
+    NoSQL Features in SQL Databases
+  </a>
+  
+    <nav class="md-nav" aria-label="NoSQL Features in SQL Databases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#working-with-json-xml" class="md-nav__link">
+    Working with JSON &amp; XML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-text-search-tsvector-match-against" class="md-nav__link">
+    Full-Text Search (tsvector, MATCH AGAINST)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-best-practices" class="md-nav__link">
+    Security &amp; Best Practices
+  </a>
+  
+    <nav class="md-nav" aria-label="Security &amp; Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql-injection-prevention" class="md-nav__link">
+    SQL Injection Prevention
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-based-access-control-grant-revoke" class="md-nav__link">
+    Role-Based Access Control (GRANT, REVOKE)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-encryption-hashing-md5-sha256" class="md-nav__link">
+    Data Encryption &amp; Hashing (MD5(), SHA256())
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" data-md-state="indeterminate" type="checkbox" id="__nav_2_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          NoSQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NoSQL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          NoSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nosql/db_redis/" class="md-nav__link">
+        Redis🔥
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Ai
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Ai" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Ai
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai_frameworks/" class="md-nav__link">
+        Frameworks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#subqueries-ctes-common-table-expressions" class="md-nav__link">
+    Subqueries &amp; CTEs (Common Table Expressions)
+  </a>
+  
+    <nav class="md-nav" aria-label="Subqueries &amp; CTEs (Common Table Expressions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subqueries-select-inside-select" class="md-nav__link">
+    Subqueries (SELECT inside SELECT)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctes-with-clause-for-readability" class="md-nav__link">
+    CTEs (WITH clause for readability)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursive-ctes" class="md-nav__link">
+    Recursive CTEs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing-performance-optimization" class="md-nav__link">
+    Indexing &amp; Performance Optimization
+  </a>
+  
+    <nav class="md-nav" aria-label="Indexing &amp; Performance Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-index" class="md-nav__link">
+    What is an Index?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-using-indexes-create-index" class="md-nav__link">
+    Creating &amp; Using Indexes (CREATE INDEX)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-execution-plans-explain" class="md-nav__link">
+    Understanding Execution Plans (EXPLAIN)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transactions-acid-principles" class="md-nav__link">
+    Transactions &amp; ACID Principles
+  </a>
+  
+    <nav class="md-nav" aria-label="Transactions &amp; ACID Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#begin-commit-rollback-savepoint-managing-transactions" class="md-nav__link">
+    BEGIN, COMMIT, ROLLBACK, SAVEPOINT – Managing Transactions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#begin-vs-begin-transaction" class="md-nav__link">
+    BEGIN vs. BEGIN TRANSACTION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-transaction-control-commands" class="md-nav__link">
+    Summary of Transaction Control Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-transferring-funds-between-accounts" class="md-nav__link">
+    Scenario: Transferring Funds Between Accounts
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario: Transferring Funds Between Accounts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql-transaction-example" class="md-nav__link">
+    SQL Transaction Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-in-sql" class="md-nav__link">
+    What is @@ in SQL?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acid-properties-atomicity-consistency-isolation-durability" class="md-nav__link">
+    ACID Properties (Atomicity, Consistency, Isolation, Durability)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-sql-features" class="md-nav__link">
+    Advanced SQL Features
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced SQL Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-statements-conditional-logic" class="md-nav__link">
+    CASE Statements – Conditional Logic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#window-functions-rank-dense_rank-row_number" class="md-nav__link">
+    Window Functions (RANK(), DENSE_RANK(), ROW_NUMBER())
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pivoting-unpivoting-data" class="md-nav__link">
+    Pivoting &amp; Unpivoting Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-handling-jsonb-in-postgresql" class="md-nav__link">
+    JSON Handling (JSONB, -&gt;, -&gt;&gt;, #&gt; in PostgreSQL)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stored-procedures-triggers" class="md-nav__link">
+    Stored Procedures &amp; Triggers
+  </a>
+  
+    <nav class="md-nav" aria-label="Stored Procedures &amp; Triggers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-executing-stored-procedures" class="md-nav__link">
+    Creating &amp; Executing Stored Procedures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-triggers-for-automation" class="md-nav__link">
+    Using Triggers for Automation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cursors-loops" class="md-nav__link">
+    Cursors &amp; Loops
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nosql-features-in-sql-databases" class="md-nav__link">
+    NoSQL Features in SQL Databases
+  </a>
+  
+    <nav class="md-nav" aria-label="NoSQL Features in SQL Databases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#working-with-json-xml" class="md-nav__link">
+    Working with JSON &amp; XML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-text-search-tsvector-match-against" class="md-nav__link">
+    Full-Text Search (tsvector, MATCH AGAINST)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-best-practices" class="md-nav__link">
+    Security &amp; Best Practices
+  </a>
+  
+    <nav class="md-nav" aria-label="Security &amp; Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql-injection-prevention" class="md-nav__link">
+    SQL Injection Prevention
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-based-access-control-grant-revoke" class="md-nav__link">
+    Role-Based Access Control (GRANT, REVOKE)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-encryption-hashing-md5-sha256" class="md-nav__link">
+    Data Encryption &amp; Hashing (MD5(), SHA256())
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+  <h1>More</h1>
+
+<h2 id="subqueries-ctes-common-table-expressions"><strong>Subqueries &amp; CTEs (Common Table Expressions)</strong></h2>
+<h3 id="subqueries-select-inside-select"><strong>Subqueries (<code>SELECT</code> inside <code>SELECT</code>)</strong></h3>
+<p>Subqueries allow you to use the result of one query within another query.</p>
+<p><strong>Example: Find employees who earn more than the average salary</strong>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="ctes-with-clause-for-readability"><strong>CTEs (<code>WITH</code> clause for readability)</strong></h3>
+<p>Common Table Expressions (CTEs) improve query readability by defining temporary result sets.</p>
+<p><strong>Example: Using a CTE to list high-salary employees</strong>
+<div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="n">HighEarners</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="w"></span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">80000</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">HighEarners</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="recursive-ctes"><strong>Recursive CTEs</strong></h3>
+<p>Recursive CTEs are used to handle hierarchical data such as organizational structures.</p>
+<p><strong>Example: Retrieve an employee hierarchy</strong>
+<div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="k">RECURSIVE</span><span class="w"> </span><span class="n">EmployeeHierarchy</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="n">manager_id</span><span class="p">,</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">level</span><span class="w"></span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">manager_id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"></span>
+<span class="w">    </span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span><span class="w"></span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">manager_id</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">eh</span><span class="p">.</span><span class="k">level</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="n">e</span><span class="w"></span>
+<span class="w">    </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">EmployeeHierarchy</span><span class="w"> </span><span class="n">eh</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">manager_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eh</span><span class="p">.</span><span class="n">employee_id</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">EmployeeHierarchy</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></p>
+<hr />
+<h2 id="indexing-performance-optimization"><strong>Indexing &amp; Performance Optimization</strong></h2>
+<h3 id="what-is-an-index"><strong>What is an Index?</strong></h3>
+<p>Indexes improve query performance by allowing faster lookups.</p>
+<h3 id="creating-using-indexes-create-index"><strong>Creating &amp; Using Indexes (<code>CREATE INDEX</code>)</strong></h3>
+<p>Indexes speed up searches but can slow down insert/update operations.</p>
+<p><strong>Example: Creating an index on the <code>last_name</code> column</strong>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_lastname</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="p">(</span><span class="n">last_name</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="understanding-execution-plans-explain"><strong>Understanding Execution Plans (<code>EXPLAIN</code>)</strong></h3>
+<p>The <code>EXPLAIN</code> statement helps analyze query performance.</p>
+<p><strong>Example: Analyzing a query execution plan</strong>
+<div class="highlight"><pre><span></span><code><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Smith&#39;</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></p>
+<hr />
+<h2 id="transactions-acid-principles"><strong>Transactions &amp; ACID Principles</strong></h2>
+<h3 id="begin-commit-rollback-savepoint-managing-transactions"><strong><code>BEGIN</code>, <code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code> – Managing Transactions</strong></h3>
+<p>Transactions ensure data integrity by grouping multiple operations.</p>
+<p><strong>Example: Using transactions</strong>
+<div class="highlight"><pre><span></span><code><span class="k">BEGIN</span><span class="p">;</span><span class="w"></span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">account_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">account_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="k">COMMIT</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></p>
+<p><strong>Example: Rolling back a failed transaction</strong>
+<div class="highlight"><pre><span></span><code><span class="k">BEGIN</span><span class="p">;</span><span class="w"></span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Shipped&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">order_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="k">ROLLBACK</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="begin-vs-begin-transaction">BEGIN vs. BEGIN TRANSACTION</h3>
+<ul>
+<li>BEGIN: In some databases, BEGIN alone is sufficient to start a transaction. However, in others (like SQL Server), BEGIN alone is ambiguous because it is also used in control flow structures (e.g., BEGIN...END for blocks of code).</li>
+<li>BEGIN TRANSACTION (or BEGIN TRAN): This explicitly starts a transaction and is recommended for clarity, especially in databases like SQL Server.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Database System</th>
+<th>Recommended Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PostgreSQL</td>
+<td>BEGIN; or START TRANSACTION;</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>START TRANSACTION; (preferred) or BEGIN; (can be used but conflicts with stored procedure syntax)</td>
+</tr>
+<tr>
+<td>SQL Server</td>
+<td>BEGIN TRANSACTION; or BEGIN TRAN; (explicit, avoids ambiguity)</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>Transactions are implicitly managed, but BEGIN is used for PL/SQL blocks. Use SET TRANSACTION for control.</td>
+</tr>
+<tr>
+<td>Microsoft SQL Server</td>
+<td>BEGIN TRANSACTION; or BEGIN TRAN; (explicit, avoids ambiguity)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="summary-of-transaction-control-commands">Summary of Transaction Control Commands</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BEGIN TRANSACTION</td>
+<td>Starts a new transaction.</td>
+<td>BEGIN TRANSACTION TransferFunds;</td>
+</tr>
+<tr>
+<td>COMMIT</td>
+<td>Saves all changes made during the transaction.</td>
+<td>COMMIT;</td>
+</tr>
+<tr>
+<td>ROLLBACK</td>
+<td>Undoes changes made during the transaction.</td>
+<td>ROLLBACK;</td>
+</tr>
+<tr>
+<td>SAVEPOINT</td>
+<td>Creates a point in the transaction to which you can roll back.</td>
+<td>SAVEPOINT SP1;</td>
+</tr>
+<tr>
+<td>ROLLBACK TO SAVEPOINT</td>
+<td>Rolls back the transaction to a specific savepoint.</td>
+<td>ROLLBACK TO SP1;</td>
+</tr>
+<tr>
+<td>RELEASE SAVEPOINT</td>
+<td>Removes a savepoint from the transaction.</td>
+<td>RELEASE SAVEPOINT SP2;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scenario-transferring-funds-between-accounts"><strong>Scenario: Transferring Funds Between Accounts</strong></h3>
+<p>We want to transfer $500 from <strong>Account A (ID: 1)</strong> to <strong>Account B (ID: 2)</strong>. However, if Account B does not exist, we should roll back the transfer.</p>
+<h4 id="sql-transaction-example"><strong>SQL Transaction Example</strong></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Start a new transaction</span>
+<span class="k">BEGIN</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="w"> </span><span class="n">TransferFunds</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">-- Deduct $500 from Account A</span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">500</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">account_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">-- Create a savepoint in case the next step fails</span>
+<span class="n">SAVEPOINT</span><span class="w"> </span><span class="n">SP1</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">-- Attempt to add $500 to Account B</span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">500</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">account_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">-- Check if the update was successful</span>
+<span class="k">IF</span><span class="w"> </span><span class="o">@@</span><span class="n">ROWCOUNT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="w">    </span><span class="c1">-- If Account B does not exist, roll back to the savepoint</span>
+<span class="w">    </span><span class="k">ROLLBACK</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">SP1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">PRINT</span><span class="w"> </span><span class="s1">&#39;Transfer failed: Account B does not exist. Rolling back deduction.&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">ELSE</span><span class="w"></span>
+<span class="w">    </span><span class="c1">-- If everything is fine, commit the transaction</span>
+<span class="w">    </span><span class="k">COMMIT</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">PRINT</span><span class="w"> </span><span class="s1">&#39;Transfer successful!&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">-- Release the savepoint since it&#39;s no longer needed</span>
+<span class="n">RELEASE</span><span class="w"> </span><span class="n">SAVEPOINT</span><span class="w"> </span><span class="n">SP1</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p><strong><code>IF @@ROWCOUNT = 0 THEN ROLLBACK TO SP1;</code></strong><br />
+   - If no rows were updated (meaning Account B doesn’t exist), rollback to the savepoint.</p>
+<h4 id="what-is-in-sql"><strong>What is <code>@@</code> in SQL?</strong></h4>
+<p>In SQL, <code>@@</code> is used as a <strong>prefix for system-defined global variables</strong> (also called system functions in some databases). These variables store metadata about the current session, transaction, or system state.</p>
+<h5 id="usage-of-in-different-databases"><strong>Usage of <code>@@</code> in Different Databases</strong></h5>
+<ul>
+<li><strong>SQL Server</strong>: <code>@@</code> is used for built-in system variables like <code>@@ROWCOUNT</code>, <code>@@TRANCOUNT</code>, <code>@@SERVERNAME</code>, etc.</li>
+<li><strong>MySQL &amp; PostgreSQL</strong>: They do not use <code>@@</code> for system variables. Instead:</li>
+<li>MySQL uses <code>@@</code> for <strong>session and global variables</strong>, like <code>@@autocommit</code>.</li>
+<li>PostgreSQL uses functions like <code>pg_backend_pid()</code> instead of <code>@@</code> variables.</li>
+</ul>
+<hr />
+<h6 id="common-variables-in-sql-server"><strong>Common <code>@@</code> Variables in SQL Server</strong></h6>
+<table>
+<thead>
+<tr>
+<th><strong>Variable</strong></th>
+<th><strong>Purpose</strong></th>
+<th><strong>Example Usage</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@@ROWCOUNT</code></td>
+<td>Returns the number of rows affected by the last statement.</td>
+<td><code>SELECT * FROM employees; PRINT @@ROWCOUNT;</code></td>
+</tr>
+<tr>
+<td><code>@@TRANCOUNT</code></td>
+<td>Returns the number of active transactions in the current session.</td>
+<td><code>PRINT @@TRANCOUNT;</code></td>
+</tr>
+<tr>
+<td><code>@@IDENTITY</code></td>
+<td>Returns the last inserted identity value.</td>
+<td><code>INSERT INTO users (name) VALUES ('John'); PRINT @@IDENTITY;</code></td>
+</tr>
+<tr>
+<td><code>@@ERROR</code></td>
+<td>Returns the error code from the last statement.</td>
+<td><code>UPDATE employees SET salary = NULL; IF @@ERROR &lt;&gt; 0 PRINT 'Error occurred';</code></td>
+</tr>
+<tr>
+<td><code>@@SERVERNAME</code></td>
+<td>Returns the name of the SQL Server instance.</td>
+<td><code>SELECT @@SERVERNAME;</code></td>
+</tr>
+<tr>
+<td><code>@@VERSION</code></td>
+<td>Returns the version details of the SQL Server.</td>
+<td><code>SELECT @@VERSION;</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h5 id="examples-of-in-action"><strong>Examples of <code>@@</code> in Action</strong></h5>
+<h6 id="1-using-rowcount-to-check-affected-rows"><strong>1. Using <code>@@ROWCOUNT</code> to Check Affected Rows</strong></h6>
+<p><div class="highlight"><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Sales&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="n">PRINT</span><span class="w"> </span><span class="s1">&#39;Rows affected: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="o">@@</span><span class="n">ROWCOUNT</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+If 5 employees in Sales received a 10% salary increase, <code>@@ROWCOUNT</code> would return <code>5</code>.</p>
+<h6 id="2-using-trancount-to-check-active-transactions"><strong>2. Using <code>@@TRANCOUNT</code> to Check Active Transactions</strong></h6>
+<p><div class="highlight"><pre><span></span><code><span class="k">BEGIN</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span><span class="w"></span>
+<span class="n">PRINT</span><span class="w"> </span><span class="s1">&#39;Active Transactions: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="o">@@</span><span class="n">TRANCOUNT</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">);</span><span class="w"></span>
+<span class="k">COMMIT</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+This prints the current number of active transactions.</p>
+<h6 id="3-using-error-for-error-handling"><strong>3. Using <code>@@ERROR</code> for Error Handling</strong></h6>
+<p><div class="highlight"><pre><span></span><code><span class="k">BEGIN</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span><span class="w"></span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">employee_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">IF</span><span class="w"> </span><span class="o">@@</span><span class="n">ERROR</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="n">PRINT</span><span class="w"> </span><span class="s1">&#39;Error occurred, rolling back!&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">ROLLBACK</span><span class="p">;</span><span class="w"></span>
+<span class="k">ELSE</span><span class="w"></span>
+<span class="w">    </span><span class="k">COMMIT</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+If an error occurs, <code>ROLLBACK</code> prevents invalid changes.</p>
+<hr />
+<h3 id="acid-properties-atomicity-consistency-isolation-durability"><strong>ACID Properties (Atomicity, Consistency, Isolation, Durability)</strong></h3>
+<ul>
+<li><strong>Atomicity</strong>: Transactions are all-or-nothing.</li>
+<li><strong>Consistency</strong>: Data remains valid before and after transactions.</li>
+<li><strong>Isolation</strong>: Transactions execute independently.</li>
+<li><strong>Durability</strong>: Committed data is permanently stored.</li>
+</ul>
+<hr />
+<h2 id="advanced-sql-features"><strong>Advanced SQL Features</strong></h2>
+<h3 id="case-statements-conditional-logic"><strong><code>CASE</code> Statements – Conditional Logic</strong></h3>
+<p>The <code>CASE</code> statement allows conditional logic within SQL queries.</p>
+<p><strong>Example: Categorizing salaries</strong>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">CASE</span><span class="w"></span>
+<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">80000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;High&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">80000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Medium&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;Low&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">salary_category</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="window-functions-rank-dense_rank-row_number"><strong>Window Functions (<code>RANK()</code>, <code>DENSE_RANK()</code>, <code>ROW_NUMBER()</code>)</strong></h3>
+<p>Window functions perform calculations across table partitions.</p>
+<p><strong>Example: Ranking employees by salary</strong>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="n">RANK</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">DESC</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">salary_rank</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="pivoting-unpivoting-data"><strong>Pivoting &amp; Unpivoting Data</strong></h3>
+<p>Pivoting transforms row data into columns, while unpivoting does the reverse.</p>
+<h3 id="json-handling-jsonb-in-postgresql"><strong>JSON Handling (<code>JSONB</code>, <code>-&gt;</code>, <code>-&gt;&gt;</code>, <code>#&gt;</code> in PostgreSQL)</strong></h3>
+<p>PostgreSQL supports querying JSON data stored in columns.</p>
+<p><strong>Example: Extracting JSON fields</strong>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">data</span><span class="o">-&gt;</span><span class="s1">&#39;name&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">data</span><span class="o">-&gt;&gt;</span><span class="s1">&#39;status&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;active&#39;</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></p>
+<hr />
+<h2 id="stored-procedures-triggers"><strong>Stored Procedures &amp; Triggers</strong></h2>
+<h3 id="creating-executing-stored-procedures"><strong>Creating &amp; Executing Stored Procedures</strong></h3>
+<p>Stored procedures allow reusable SQL logic execution.</p>
+<p><strong>Example: Creating a stored procedure</strong>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">UpdateSalary</span><span class="p">(</span><span class="k">IN</span><span class="w"> </span><span class="n">emp_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="n">new_salary</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
+<span class="k">LANGUAGE</span><span class="w"> </span><span class="k">SQL</span><span class="w"></span>
+<span class="k">AS</span><span class="w"> </span><span class="err">$$</span><span class="w"></span>
+<span class="w">    </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_salary</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">employee_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emp_id</span><span class="p">;</span><span class="w"></span>
+<span class="err">$$</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="using-triggers-for-automation"><strong>Using Triggers for Automation</strong></h3>
+<p>Triggers execute actions automatically based on events.</p>
+<p><strong>Example: Creating a trigger to update timestamps</strong>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">update_timestamp</span><span class="w"></span>
+<span class="k">BEFORE</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
+<span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span><span class="w"></span>
+<span class="k">EXECUTE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">update_modified_column</span><span class="p">();</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="cursors-loops"><strong>Cursors &amp; Loops</strong></h3>
+<p>Cursors iterate over query results within stored procedures.</p>
+<hr />
+<h2 id="nosql-features-in-sql-databases"><strong>NoSQL Features in SQL Databases</strong></h2>
+<h3 id="working-with-json-xml"><strong>Working with JSON &amp; XML</strong></h3>
+<p>Many relational databases support NoSQL-like JSON and XML processing.</p>
+<h3 id="full-text-search-tsvector-match-against"><strong>Full-Text Search (<code>tsvector</code>, <code>MATCH AGAINST</code>)</strong></h3>
+<p>Full-text search allows efficient searching within text fields.</p>
+<p><strong>Example: Using full-text search in PostgreSQL</strong>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">articles</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">to_tsvector</span><span class="p">(</span><span class="n">content</span><span class="p">)</span><span class="w"> </span><span class="o">@@</span><span class="w"> </span><span class="n">to_tsquery</span><span class="p">(</span><span class="s1">&#39;database&#39;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+<hr />
+<h2 id="security-best-practices"><strong>Security &amp; Best Practices</strong></h2>
+<h3 id="sql-injection-prevention"><strong>SQL Injection Prevention</strong></h3>
+<p>Use prepared statements to prevent SQL injection.</p>
+<p><strong>Example: Using a parameterized query in PostgreSQL</strong>
+<div class="highlight"><pre><span></span><code><span class="k">PREPARE</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="s1">&#39;SELECT * FROM users WHERE username = $1&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">EXECUTE</span><span class="w"> </span><span class="n">stmt</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="role-based-access-control-grant-revoke"><strong>Role-Based Access Control (<code>GRANT</code>, <code>REVOKE</code>)</strong></h3>
+<p>Restrict access by assigning roles.</p>
+<p><strong>Example: Granting read-only access</strong>
+<div class="highlight"><pre><span></span><code><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">readonly_user</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="data-encryption-hashing-md5-sha256"><strong>Data Encryption &amp; Hashing (<code>MD5()</code>, <code>SHA256()</code>)</strong></h3>
+<p>Encryption and hashing protect sensitive data.</p>
+<p><strong>Example: Storing hashed passwords</strong>
+<div class="highlight"><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SHA256</span><span class="p">(</span><span class="s1">&#39;mysecurepassword&#39;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+<hr />
+<p>These advanced SQL concepts help in optimizing, securing, and extending database functionality.</p>
+<hr />
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../db_sqljoin/" class="md-footer__link md-footer__link--prev" aria-label="Previous: JOIN" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              JOIN
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../nosql/db_redis/" class="md-footer__link md-footer__link--next" aria-label="Next: Redis🔥" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Redis🔥
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://linkedin.com/in/carlos-arcelopera" target="_blank" rel="noopener" title="linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/ArceLopera" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+    <a href="mailto:arcelopera.carlos@gmail.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="m511.6 36.86-64 415.1a32.008 32.008 0 0 1-31.65 27.147c-4.188 0-8.319-.815-12.29-2.472l-122.6-51.1-50.86 76.29C226.3 508.5 219.8 512 212.8 512c-11.5 0-20.8-9.3-20.8-20.8v-96.18c0-7.115 2.372-14.03 6.742-19.64L416 96 122.3 360.3 19.69 317.5C8.438 312.8.812 302.2.062 289.1s5.47-23.72 16.06-29.77l448-255.1c10.69-6.109 23.88-5.547 34 1.406S513.5 24.72 511.6 36.86z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.a6c66575.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
