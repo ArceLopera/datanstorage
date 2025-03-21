@@ -104,7 +104,9 @@ DROP TABLE employees;
 ```
 
 ### Data Types (`INT`, `VARCHAR`, `DATE`, etc.)  
+
 Common SQL data types include:
+
 - `INT` – Integer values (e.g., `employee_id INT`)
 - `VARCHAR(n)` – Variable-length string (`name VARCHAR(100)`)
 - `DATE` – Stores date values (e.g., `hire_date DATE`)

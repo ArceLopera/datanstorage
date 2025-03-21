@@ -101,6 +101,7 @@ nav:
           - Basic:
               - Basic SQL Commands: db/sql/db_sqlbasic.md
               - JOIN: db/sql/db_sqljoin.md
+              - More: db/sql/db_sqladv.md
       - NoSQL:
           - Redis🔥: db/nosql/db_redis.md
   - Ai:

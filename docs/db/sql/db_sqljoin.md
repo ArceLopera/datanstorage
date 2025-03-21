@@ -1,48 +1,108 @@
 
-## ** SQL Joins & Relationships**  
-- `INNER JOIN` – Matching records  
-- `LEFT JOIN` / `RIGHT JOIN` – Including unmatched records  
-- `FULL OUTER JOIN` – Combining everything  
-- `SELF JOIN` – Joining a table to itself  
-- `CROSS JOIN` – Cartesian product  
+## **SQL Joins & Relationships**
 
-## ** Grouping & Aggregation**  
-- `GROUP BY` – Grouping data  
-- `HAVING` – Filtering grouped results  
-- Aggregate Functions (`COUNT()`, `SUM()`, `AVG()`, `MIN()`, `MAX()`)  
+### **INNER JOIN – Matching Records**
+The `INNER JOIN` returns only records that have matching values in both tables.
 
-## ** Subqueries & CTEs (Common Table Expressions)**  
-- Subqueries (`SELECT` inside `SELECT`)  
-- CTEs (`WITH` clause for readability)  
-- Recursive CTEs  
+**Example: Retrieve employees and their department names**
+```sql
+SELECT employees.first_name, employees.last_name, departments.dept_name
+FROM employees
+INNER JOIN departments ON employees.department_id = departments.department_id;
+```
 
-## ** Indexing & Performance Optimization**  
-- What is an Index?  
-- Creating & Using Indexes (`CREATE INDEX`)  
-- Understanding Execution Plans (`EXPLAIN`)  
+### **LEFT JOIN / RIGHT JOIN – Including Unmatched Records**
+The `LEFT JOIN` returns all records from the left table and matching records from the right table. If no match exists, `NULL` is returned.
 
-## ** Transactions & ACID Principles**  
-- `BEGIN`, `COMMIT`, `ROLLBACK` – Managing transactions  
-- ACID Properties (Atomicity, Consistency, Isolation, Durability)  
+**Example: Retrieve all employees, even if they have no department**
+```sql
+SELECT employees.first_name, employees.last_name, departments.dept_name
+FROM employees
+LEFT JOIN departments ON employees.department_id = departments.department_id;
+```
 
-## ** Advanced SQL Features**  
-- `CASE` Statements – Conditional logic  
-- Window Functions (`RANK()`, `DENSE_RANK()`, `ROW_NUMBER()`)  
-- Pivoting & Unpivoting Data  
-- JSON Handling (`JSONB`, `->`, `->>`, `#>` in PostgreSQL)  
+The `RIGHT JOIN` does the opposite, returning all records from the right table and matching ones from the left.
 
-## ** Stored Procedures & Triggers**  
-- Creating & Executing Stored Procedures  
-- Using Triggers for Automation  
-- Cursors & Loops  
+**Example: Retrieve all departments, even if they have no employees**
+```sql
+SELECT employees.first_name, employees.last_name, departments.dept_name
+FROM employees
+RIGHT JOIN departments ON employees.department_id = departments.department_id;
+```
 
-## ** NoSQL Features in SQL Databases**  
-- Working with JSON & XML  
-- Full-Text Search (`tsvector`, `MATCH AGAINST`)  
+### **FULL OUTER JOIN – Combining Everything**
+The `FULL OUTER JOIN` returns all records from both tables, with `NULL` for non-matching records.
 
-## ** Security & Best Practices**  
-- SQL Injection Prevention  
-- Role-Based Access Control (`GRANT`, `REVOKE`)  
-- Data Encryption & Hashing (`MD5()`, `SHA256()`)  
+**Example: Retrieve all employees and departments, showing unmatched ones**
+```sql
+SELECT employees.first_name, employees.last_name, departments.dept_name
+FROM employees
+FULL OUTER JOIN departments ON employees.department_id = departments.department_id;
+```
+
+### **SELF JOIN – Joining a Table to Itself**
+A `SELF JOIN` is used to compare rows within the same table.
+
+**Example: Find employees and their managers (both stored in the `employees` table)**
+```sql
+SELECT e1.first_name AS employee, e2.first_name AS manager
+FROM employees e1
+INNER JOIN employees e2 ON e1.manager_id = e2.employee_id;
+```
+
+### **CROSS JOIN – Cartesian Product**
+A `CROSS JOIN` returns all possible combinations of records between two tables.
+
+**Example: Create all combinations of employees and projects**
+```sql
+SELECT employees.first_name, projects.project_name
+FROM employees
+CROSS JOIN projects;
+```
+
+## **Grouping & Aggregation**
+
+### **GROUP BY – Grouping Data**
+The `GROUP BY` statement groups rows that have the same values in specified columns.
+
+**Example: Count employees in each department**
+```sql
+SELECT department_id, COUNT(*) AS employee_count
+FROM employees
+GROUP BY department_id;
+```
+
+### **HAVING – Filtering Grouped Results**
+The `HAVING` clause filters grouped results (similar to `WHERE` but used with aggregation).
+
+**Example: Get departments with more than 10 employees**
+```sql
+SELECT department_id, COUNT(*) AS employee_count
+FROM employees
+GROUP BY department_id
+HAVING COUNT(*) > 10;
+```
+
+### **Aggregate Functions (COUNT(), SUM(), AVG(), MIN(), MAX())**
+SQL provides several functions for performing calculations on data.
+
+- **`COUNT()`** – Counts the number of rows.
+- **`SUM()`** – Calculates the total sum of a column.
+- **`AVG()`** – Computes the average value.
+- **`MIN()` / `MAX()`** – Finds the smallest/largest value.
+
+**Example: Get department statistics**
+```sql
+SELECT department_id,
+       COUNT(*) AS employee_count,
+       SUM(salary) AS total_salary,
+       AVG(salary) AS average_salary,
+       MIN(salary) AS lowest_salary,
+       MAX(salary) AS highest_salary
+FROM employees
+GROUP BY department_id;
+```
+
+These SQL joins and aggregation techniques help in efficiently managing and analyzing relational data.
 
 ---
