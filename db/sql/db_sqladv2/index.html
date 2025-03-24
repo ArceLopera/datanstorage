@@ -12,14 +12,14 @@
         <meta name="author" content="ArceLopera">
       
       
-        <link rel="canonical" href="https://arcelopera.github.io/datanstorage/db/sql/db_sqlbasic/">
+        <link rel="canonical" href="https://arcelopera.github.io/datanstorage/db/sql/db_sqladv2/">
       
       <link rel="icon" href="../../..">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
-        <title>Basic SQL Commands - Data n Storage Refresher</title>
+        <title>Various - Data n Storage Refresher</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#basic-sql-commands" class="md-skip">
+        <a href="#case-statements-conditional-logic" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Basic SQL Commands
+              Various
             
           </span>
         </div>
@@ -491,14 +491,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" data-md-state="indeterminate" type="checkbox" id="__nav_2_2_3" checked>
       
       
       
@@ -519,164 +517,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Basic SQL Commands
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../db_sqlbasic/" class="md-nav__link">
         Basic SQL Commands
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#basic-sql-commands" class="md-nav__link">
-    Basic SQL Commands
-  </a>
-  
-    <nav class="md-nav" aria-label="Basic SQL Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#select-retrieving-data" class="md-nav__link">
-    SELECT – Retrieving Data
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#insert-adding-records" class="md-nav__link">
-    INSERT – Adding Records
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#update-modifying-data" class="md-nav__link">
-    UPDATE – Modifying Data
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete-removing-records" class="md-nav__link">
-    DELETE – Removing Records
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-tables" class="md-nav__link">
-    Working with Tables
-  </a>
-  
-    <nav class="md-nav" aria-label="Working with Tables">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-table-defining-structure" class="md-nav__link">
-    CREATE TABLE – Defining Structure
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alter-table-modifying-schema" class="md-nav__link">
-    ALTER TABLE – Modifying Schema
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#drop-table-deleting-a-table" class="md-nav__link">
-    DROP TABLE – Deleting a Table
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-types-int-varchar-date-etc" class="md-nav__link">
-    Data Types (INT, VARCHAR, DATE, etc.)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#filtering-data" class="md-nav__link">
-    Filtering Data
-  </a>
-  
-    <nav class="md-nav" aria-label="Filtering Data">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#where-conditional-filtering" class="md-nav__link">
-    WHERE – Conditional Filtering
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#order-by-sorting-results" class="md-nav__link">
-    ORDER BY – Sorting Results
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#limit-restricting-output" class="md-nav__link">
-    LIMIT – Restricting Output
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#distinct-removing-duplicates" class="md-nav__link">
-    DISTINCT – Removing Duplicates
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -707,12 +552,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_4" data-md-state="indeterminate" type="checkbox" id="__nav_2_2_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_4" type="checkbox" id="__nav_2_2_4" checked>
       
       
       
@@ -775,11 +622,69 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../db_sqladv2/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Various
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Various
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#case-statements-conditional-logic" class="md-nav__link">
+    CASE Statements – Conditional Logic
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#window-functions-rank-dense_rank-row_number" class="md-nav__link">
+    Window Functions (RANK(), DENSE_RANK(), ROW_NUMBER())
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pivoting-unpivoting-data" class="md-nav__link">
+    Pivoting &amp; Unpivoting Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json-handling-jsonb-in-postgresql" class="md-nav__link">
+    JSON Handling (JSONB, -&gt;, -&gt;&gt;, #&gt; in PostgreSQL)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -939,125 +844,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#basic-sql-commands" class="md-nav__link">
-    Basic SQL Commands
+  <a href="#case-statements-conditional-logic" class="md-nav__link">
+    CASE Statements – Conditional Logic
   </a>
-  
-    <nav class="md-nav" aria-label="Basic SQL Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#select-retrieving-data" class="md-nav__link">
-    SELECT – Retrieving Data
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#insert-adding-records" class="md-nav__link">
-    INSERT – Adding Records
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#update-modifying-data" class="md-nav__link">
-    UPDATE – Modifying Data
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete-removing-records" class="md-nav__link">
-    DELETE – Removing Records
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#working-with-tables" class="md-nav__link">
-    Working with Tables
+  <a href="#window-functions-rank-dense_rank-row_number" class="md-nav__link">
+    Window Functions (RANK(), DENSE_RANK(), ROW_NUMBER())
   </a>
-  
-    <nav class="md-nav" aria-label="Working with Tables">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-table-defining-structure" class="md-nav__link">
-    CREATE TABLE – Defining Structure
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alter-table-modifying-schema" class="md-nav__link">
-    ALTER TABLE – Modifying Schema
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#drop-table-deleting-a-table" class="md-nav__link">
-    DROP TABLE – Deleting a Table
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-types-int-varchar-date-etc" class="md-nav__link">
-    Data Types (INT, VARCHAR, DATE, etc.)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#filtering-data" class="md-nav__link">
-    Filtering Data
-  </a>
-  
-    <nav class="md-nav" aria-label="Filtering Data">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#where-conditional-filtering" class="md-nav__link">
-    WHERE – Conditional Filtering
+  <a href="#pivoting-unpivoting-data" class="md-nav__link">
+    Pivoting &amp; Unpivoting Data
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#order-by-sorting-results" class="md-nav__link">
-    ORDER BY – Sorting Results
+      
+        <li class="md-nav__item">
+  <a href="#json-handling-jsonb-in-postgresql" class="md-nav__link">
+    JSON Handling (JSONB, -&gt;, -&gt;&gt;, #&gt; in PostgreSQL)
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#limit-restricting-output" class="md-nav__link">
-    LIMIT – Restricting Output
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#distinct-removing-duplicates" class="md-nav__link">
-    DISTINCT – Removing Duplicates
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1075,118 +885,33 @@
                 
 
 
-  <h1>Basic SQL Commands</h1>
+  <h1>Various</h1>
 
-<h2 id="basic-sql-commands"><strong>Basic SQL Commands</strong></h2>
-<h3 id="select-retrieving-data"><code>SELECT</code> – Retrieving Data</h3>
-<p>The <code>SELECT</code> statement is used to retrieve data from a database. You can specify which columns to retrieve or use <code>*</code> to get all columns.</p>
-<p><strong>Example 1: Select all columns from a table</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+<h2 id="case-statements-conditional-logic"><strong><code>CASE</code> Statements – Conditional Logic</strong></h2>
+<p>The <code>CASE</code> statement allows conditional logic within SQL queries.</p>
+<p><strong>Example: Categorizing salaries</strong>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">CASE</span><span class="w"></span>
+<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">80000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;High&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">80000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Medium&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;Low&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">salary_category</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></p>
-<p><strong>Example 2: Select specific columns</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+<h2 id="window-functions-rank-dense_rank-row_number"><strong>Window Functions (<code>RANK()</code>, <code>DENSE_RANK()</code>, <code>ROW_NUMBER()</code>)</strong></h2>
+<p>Window functions perform calculations across table partitions.</p>
+<p><strong>Example: Ranking employees by salary</strong>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="n">RANK</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">DESC</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">salary_rank</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></p>
-<p><strong>Example 3: Using <code>WHERE</code> to filter results</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;HR&#39;</span><span class="p">;</span><span class="w"></span>
+<h2 id="pivoting-unpivoting-data"><strong>Pivoting &amp; Unpivoting Data</strong></h2>
+<p>Pivoting transforms row data into columns, while unpivoting does the reverse.</p>
+<h2 id="json-handling-jsonb-in-postgresql"><strong>JSON Handling (<code>JSONB</code>, <code>-&gt;</code>, <code>-&gt;&gt;</code>, <code>#&gt;</code> in PostgreSQL)</strong></h2>
+<p>PostgreSQL supports querying JSON data stored in columns.</p>
+<p><strong>Example: Extracting JSON fields</strong>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">data</span><span class="o">-&gt;</span><span class="s1">&#39;name&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">data</span><span class="o">-&gt;&gt;</span><span class="s1">&#39;status&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;active&#39;</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></p>
-<h3 id="insert-adding-records"><code>INSERT</code> – Adding Records</h3>
-<p>The <code>INSERT</code> statement is used to add new records into a table.</p>
-<p><strong>Example 1: Inserting a full row</strong>
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">department</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="p">)</span><span class="w"></span>
-<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Doe&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;IT&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">60000</span><span class="p">);</span><span class="w"></span>
-</code></pre></div></p>
-<p><strong>Example 2: Inserting multiple rows</strong>
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">department</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="p">)</span><span class="w"></span>
-<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Jane&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Smith&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Finance&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">70000</span><span class="p">),</span><span class="w"></span>
-<span class="w">       </span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Johnson&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;HR&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">65000</span><span class="p">);</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="update-modifying-data"><code>UPDATE</code> – Modifying Data</h3>
-<p>The <code>UPDATE</code> statement is used to modify existing records.</p>
-<p><strong>Example: Updating a salary</strong>
-<div class="highlight"><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">75000</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;John&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Doe&#39;</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<p><strong>Example: Updating multiple fields</strong>
-<div class="highlight"><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Marketing&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">72000</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">employee_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="delete-removing-records"><code>DELETE</code> – Removing Records</h3>
-<p>The <code>DELETE</code> statement is used to remove records from a table.</p>
-<p><strong>Example: Deleting a specific record</strong>
-<div class="highlight"><pre><span></span><code><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">employee_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<p><strong>Example: Deleting all employees from a department</strong>
-<div class="highlight"><pre><span></span><code><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;HR&#39;</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<h2 id="working-with-tables"><strong>Working with Tables</strong></h2>
-<h3 id="create-table-defining-structure"><code>CREATE TABLE</code> – Defining Structure</h3>
-<p>The <code>CREATE TABLE</code> statement is used to define a new table.</p>
-<p><strong>Example: Creating an <code>employees</code> table</strong>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="n">employee_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">last_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">department</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">salary</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">hire_date</span><span class="w"> </span><span class="nb">DATE</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="alter-table-modifying-schema"><code>ALTER TABLE</code> – Modifying Schema</h3>
-<p>The <code>ALTER TABLE</code> statement allows modifications to an existing table.</p>
-<p><strong>Example: Adding a new column</strong>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w"></span>
-</code></pre></div></p>
-<p><strong>Example: Modifying a column data type</strong>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">MODIFY</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-</code></pre></div></p>
-<p><strong>Example: Renaming a column</strong>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">RENAME</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">dept_name</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="drop-table-deleting-a-table"><code>DROP TABLE</code> – Deleting a Table</h3>
-<p>The <code>DROP TABLE</code> statement removes a table and all its data.</p>
-<p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="data-types-int-varchar-date-etc">Data Types (<code>INT</code>, <code>VARCHAR</code>, <code>DATE</code>, etc.)</h3>
-<p>Common SQL data types include:</p>
-<ul>
-<li><code>INT</code> – Integer values (e.g., <code>employee_id INT</code>)</li>
-<li><code>VARCHAR(n)</code> – Variable-length string (<code>name VARCHAR(100)</code>)</li>
-<li><code>DATE</code> – Stores date values (e.g., <code>hire_date DATE</code>)</li>
-<li><code>DECIMAL(m,d)</code> – Decimal numbers with <code>m</code> digits and <code>d</code> decimal places (e.g., <code>salary DECIMAL(10,2)</code>)</li>
-</ul>
-<h2 id="filtering-data"><strong>Filtering Data</strong></h2>
-<h3 id="where-conditional-filtering"><code>WHERE</code> – Conditional Filtering</h3>
-<p>The <code>WHERE</code> clause is used to filter results based on conditions.</p>
-<p><strong>Example: Filtering by salary</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50000</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<p><strong>Example: Filtering by multiple conditions</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;IT&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">60000</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="order-by-sorting-results"><code>ORDER BY</code> – Sorting Results</h3>
-<p>The <code>ORDER BY</code> clause sorts results in ascending (<code>ASC</code>) or descending (<code>DESC</code>) order.</p>
-<p><strong>Example: Sorting by salary (descending)</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<p><strong>Example: Sorting by department and then by salary</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="limit-restricting-output"><code>LIMIT</code> – Restricting Output</h3>
-<p>The <code>LIMIT</code> clause restricts the number of rows returned.</p>
-<p><strong>Example: Getting the top 5 highest salaries</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">DESC</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<p><strong>Example: Paginating results (offset 10, limit 5)</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">employee_id</span><span class="w"> </span><span class="k">ASC</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">OFFSET</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="distinct-removing-duplicates"><code>DISTINCT</code> – Removing Duplicates</h3>
-<p>The <code>DISTINCT</code> keyword removes duplicate values in query results.</p>
-<p><strong>Example: Getting unique department names</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<p><strong>Example: Getting unique job titles from a <code>jobs</code> table</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">job_title</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">jobs</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<p>These basic SQL commands and filtering techniques help in effectively managing and retrieving data from a relational database system.</p>
 <hr />
 
               
@@ -1201,7 +926,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../db_postgresql/" class="md-footer__link md-footer__link--prev" aria-label="Previous: PostgreSQL🐘" rel="prev">
+        <a href="../db_sqlacid/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ACID" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1210,20 +935,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              PostgreSQL🐘
+              ACID
             </div>
           </div>
         </a>
       
       
         
-        <a href="../db_sqljoin/" class="md-footer__link md-footer__link--next" aria-label="Next: JOIN" rel="next">
+        <a href="../db_sqlproc/" class="md-footer__link md-footer__link--next" aria-label="Next: More" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              JOIN
+              More
             </div>
           </div>
           <div class="md-footer__button md-icon">
