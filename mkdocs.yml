@@ -101,7 +101,12 @@ nav:
           - Basic:
               - Basic SQL Commands: db/sql/db_sqlbasic.md
               - JOIN: db/sql/db_sqljoin.md
-              - More: db/sql/db_sqladv.md
+          - Advanced:
+              - Subqueries: db/sql/db_sqlsubquery.md
+              - Index: db/sql/db_sqlindex.md
+              - ACID: db/sql/db_sqlacid.md
+              - Various: db/sql/db_sqladv2.md
+              - More: db/sql/db_sqlproc.md
       - NoSQL:
           - Redis🔥: db/nosql/db_redis.md
   - Ai:

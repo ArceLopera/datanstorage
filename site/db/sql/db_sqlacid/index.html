@@ -12,14 +12,14 @@
         <meta name="author" content="ArceLopera">
       
       
-        <link rel="canonical" href="https://arcelopera.github.io/datanstorage/db/sql/db_sqladv/">
+        <link rel="canonical" href="https://arcelopera.github.io/datanstorage/db/sql/db_sqlacid/">
       
       <link rel="icon" href="../../..">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
-        <title>More - Data n Storage Refresher</title>
+        <title>ACID - Data n Storage Refresher</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#subqueries-ctes-common-table-expressions" class="md-skip">
+        <a href="#transactions-acid-principles" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              More
+              ACID
             
           </span>
         </div>
@@ -491,14 +491,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" data-md-state="indeterminate" type="checkbox" id="__nav_2_2_3" checked>
       
       
       
@@ -543,6 +541,69 @@
 
             
           
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_4" type="checkbox" id="__nav_2_2_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_4">
+          Advanced
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Advanced" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db_sqlsubquery/" class="md-nav__link">
+        Subqueries
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db_sqlindex/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
             
               
   
@@ -557,12 +618,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          More
+          ACID
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        More
+        ACID
       </a>
       
         
@@ -577,74 +638,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#subqueries-ctes-common-table-expressions" class="md-nav__link">
-    Subqueries &amp; CTEs (Common Table Expressions)
-  </a>
-  
-    <nav class="md-nav" aria-label="Subqueries &amp; CTEs (Common Table Expressions)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#subqueries-select-inside-select" class="md-nav__link">
-    Subqueries (SELECT inside SELECT)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ctes-with-clause-for-readability" class="md-nav__link">
-    CTEs (WITH clause for readability)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#recursive-ctes" class="md-nav__link">
-    Recursive CTEs
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#indexing-performance-optimization" class="md-nav__link">
-    Indexing &amp; Performance Optimization
-  </a>
-  
-    <nav class="md-nav" aria-label="Indexing &amp; Performance Optimization">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-an-index" class="md-nav__link">
-    What is an Index?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creating-using-indexes-create-index" class="md-nav__link">
-    Creating &amp; Using Indexes (CREATE INDEX)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#understanding-execution-plans-explain" class="md-nav__link">
-    Understanding Execution Plans (EXPLAIN)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#transactions-acid-principles" class="md-nav__link">
@@ -714,146 +707,38 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#advanced-sql-features" class="md-nav__link">
-    Advanced SQL Features
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced SQL Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#case-statements-conditional-logic" class="md-nav__link">
-    CASE Statements – Conditional Logic
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#window-functions-rank-dense_rank-row_number" class="md-nav__link">
-    Window Functions (RANK(), DENSE_RANK(), ROW_NUMBER())
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pivoting-unpivoting-data" class="md-nav__link">
-    Pivoting &amp; Unpivoting Data
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#json-handling-jsonb-in-postgresql" class="md-nav__link">
-    JSON Handling (JSONB, -&gt;, -&gt;&gt;, #&gt; in PostgreSQL)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stored-procedures-triggers" class="md-nav__link">
-    Stored Procedures &amp; Triggers
-  </a>
-  
-    <nav class="md-nav" aria-label="Stored Procedures &amp; Triggers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-executing-stored-procedures" class="md-nav__link">
-    Creating &amp; Executing Stored Procedures
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-triggers-for-automation" class="md-nav__link">
-    Using Triggers for Automation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cursors-loops" class="md-nav__link">
-    Cursors &amp; Loops
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#nosql-features-in-sql-databases" class="md-nav__link">
-    NoSQL Features in SQL Databases
-  </a>
-  
-    <nav class="md-nav" aria-label="NoSQL Features in SQL Databases">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#working-with-json-xml" class="md-nav__link">
-    Working with JSON &amp; XML
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#full-text-search-tsvector-match-against" class="md-nav__link">
-    Full-Text Search (tsvector, MATCH AGAINST)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security-best-practices" class="md-nav__link">
-    Security &amp; Best Practices
-  </a>
-  
-    <nav class="md-nav" aria-label="Security &amp; Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sql-injection-prevention" class="md-nav__link">
-    SQL Injection Prevention
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#role-based-access-control-grant-revoke" class="md-nav__link">
-    Role-Based Access Control (GRANT, REVOKE)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-encryption-hashing-md5-sha256" class="md-nav__link">
-    Data Encryption &amp; Hashing (MD5(), SHA256())
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db_sqladv2/" class="md-nav__link">
+        Various
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db_sqlproc/" class="md-nav__link">
+        More
+      </a>
     </li>
   
 
@@ -999,74 +884,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#subqueries-ctes-common-table-expressions" class="md-nav__link">
-    Subqueries &amp; CTEs (Common Table Expressions)
-  </a>
-  
-    <nav class="md-nav" aria-label="Subqueries &amp; CTEs (Common Table Expressions)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#subqueries-select-inside-select" class="md-nav__link">
-    Subqueries (SELECT inside SELECT)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ctes-with-clause-for-readability" class="md-nav__link">
-    CTEs (WITH clause for readability)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#recursive-ctes" class="md-nav__link">
-    Recursive CTEs
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#indexing-performance-optimization" class="md-nav__link">
-    Indexing &amp; Performance Optimization
-  </a>
-  
-    <nav class="md-nav" aria-label="Indexing &amp; Performance Optimization">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-an-index" class="md-nav__link">
-    What is an Index?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creating-using-indexes-create-index" class="md-nav__link">
-    Creating &amp; Using Indexes (CREATE INDEX)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#understanding-execution-plans-explain" class="md-nav__link">
-    Understanding Execution Plans (EXPLAIN)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#transactions-acid-principles" class="md-nav__link">
     Transactions &amp; ACID Principles
   </a>
@@ -1134,142 +951,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#advanced-sql-features" class="md-nav__link">
-    Advanced SQL Features
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced SQL Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#case-statements-conditional-logic" class="md-nav__link">
-    CASE Statements – Conditional Logic
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#window-functions-rank-dense_rank-row_number" class="md-nav__link">
-    Window Functions (RANK(), DENSE_RANK(), ROW_NUMBER())
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pivoting-unpivoting-data" class="md-nav__link">
-    Pivoting &amp; Unpivoting Data
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#json-handling-jsonb-in-postgresql" class="md-nav__link">
-    JSON Handling (JSONB, -&gt;, -&gt;&gt;, #&gt; in PostgreSQL)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stored-procedures-triggers" class="md-nav__link">
-    Stored Procedures &amp; Triggers
-  </a>
-  
-    <nav class="md-nav" aria-label="Stored Procedures &amp; Triggers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-executing-stored-procedures" class="md-nav__link">
-    Creating &amp; Executing Stored Procedures
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-triggers-for-automation" class="md-nav__link">
-    Using Triggers for Automation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cursors-loops" class="md-nav__link">
-    Cursors &amp; Loops
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#nosql-features-in-sql-databases" class="md-nav__link">
-    NoSQL Features in SQL Databases
-  </a>
-  
-    <nav class="md-nav" aria-label="NoSQL Features in SQL Databases">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#working-with-json-xml" class="md-nav__link">
-    Working with JSON &amp; XML
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#full-text-search-tsvector-match-against" class="md-nav__link">
-    Full-Text Search (tsvector, MATCH AGAINST)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security-best-practices" class="md-nav__link">
-    Security &amp; Best Practices
-  </a>
-  
-    <nav class="md-nav" aria-label="Security &amp; Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sql-injection-prevention" class="md-nav__link">
-    SQL Injection Prevention
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#role-based-access-control-grant-revoke" class="md-nav__link">
-    Role-Based Access Control (GRANT, REVOKE)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-encryption-hashing-md5-sha256" class="md-nav__link">
-    Data Encryption &amp; Hashing (MD5(), SHA256())
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1284,55 +965,8 @@
                 
 
 
-  <h1>More</h1>
+  <h1>ACID</h1>
 
-<h2 id="subqueries-ctes-common-table-expressions"><strong>Subqueries &amp; CTEs (Common Table Expressions)</strong></h2>
-<h3 id="subqueries-select-inside-select"><strong>Subqueries (<code>SELECT</code> inside <code>SELECT</code>)</strong></h3>
-<p>Subqueries allow you to use the result of one query within another query.</p>
-<p><strong>Example: Find employees who earn more than the average salary</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">);</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="ctes-with-clause-for-readability"><strong>CTEs (<code>WITH</code> clause for readability)</strong></h3>
-<p>Common Table Expressions (CTEs) improve query readability by defining temporary result sets.</p>
-<p><strong>Example: Using a CTE to list high-salary employees</strong>
-<div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="n">HighEarners</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="w"></span>
-<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
-<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">80000</span><span class="w"></span>
-<span class="p">)</span><span class="w"></span>
-<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">HighEarners</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="recursive-ctes"><strong>Recursive CTEs</strong></h3>
-<p>Recursive CTEs are used to handle hierarchical data such as organizational structures.</p>
-<p><strong>Example: Retrieve an employee hierarchy</strong>
-<div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="k">RECURSIVE</span><span class="w"> </span><span class="n">EmployeeHierarchy</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="n">manager_id</span><span class="p">,</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">level</span><span class="w"></span>
-<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
-<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">manager_id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"></span>
-<span class="w">    </span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span><span class="w"></span>
-<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">manager_id</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">eh</span><span class="p">.</span><span class="k">level</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="n">e</span><span class="w"></span>
-<span class="w">    </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">EmployeeHierarchy</span><span class="w"> </span><span class="n">eh</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">manager_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eh</span><span class="p">.</span><span class="n">employee_id</span><span class="w"></span>
-<span class="p">)</span><span class="w"></span>
-<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">EmployeeHierarchy</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<hr />
-<h2 id="indexing-performance-optimization"><strong>Indexing &amp; Performance Optimization</strong></h2>
-<h3 id="what-is-an-index"><strong>What is an Index?</strong></h3>
-<p>Indexes improve query performance by allowing faster lookups.</p>
-<h3 id="creating-using-indexes-create-index"><strong>Creating &amp; Using Indexes (<code>CREATE INDEX</code>)</strong></h3>
-<p>Indexes speed up searches but can slow down insert/update operations.</p>
-<p><strong>Example: Creating an index on the <code>last_name</code> column</strong>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_lastname</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="p">(</span><span class="n">last_name</span><span class="p">);</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="understanding-execution-plans-explain"><strong>Understanding Execution Plans (<code>EXPLAIN</code>)</strong></h3>
-<p>The <code>EXPLAIN</code> statement helps analyze query performance.</p>
-<p><strong>Example: Analyzing a query execution plan</strong>
-<div class="highlight"><pre><span></span><code><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Smith&#39;</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<hr />
 <h2 id="transactions-acid-principles"><strong>Transactions &amp; ACID Principles</strong></h2>
 <h3 id="begin-commit-rollback-savepoint-managing-transactions"><strong><code>BEGIN</code>, <code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code> – Managing Transactions</strong></h3>
 <p>Transactions ensure data integrity by grouping multiple operations.</p>
@@ -1540,83 +1174,6 @@ If an error occurs, <code>ROLLBACK</code> prevents invalid changes.</p>
 <li><strong>Durability</strong>: Committed data is permanently stored.</li>
 </ul>
 <hr />
-<h2 id="advanced-sql-features"><strong>Advanced SQL Features</strong></h2>
-<h3 id="case-statements-conditional-logic"><strong><code>CASE</code> Statements – Conditional Logic</strong></h3>
-<p>The <code>CASE</code> statement allows conditional logic within SQL queries.</p>
-<p><strong>Example: Categorizing salaries</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="k">CASE</span><span class="w"></span>
-<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">80000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;High&#39;</span><span class="w"></span>
-<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">80000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Medium&#39;</span><span class="w"></span>
-<span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;Low&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">salary_category</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="window-functions-rank-dense_rank-row_number"><strong>Window Functions (<code>RANK()</code>, <code>DENSE_RANK()</code>, <code>ROW_NUMBER()</code>)</strong></h3>
-<p>Window functions perform calculations across table partitions.</p>
-<p><strong>Example: Ranking employees by salary</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="n">RANK</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">DESC</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">salary_rank</span><span class="w"></span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="pivoting-unpivoting-data"><strong>Pivoting &amp; Unpivoting Data</strong></h3>
-<p>Pivoting transforms row data into columns, while unpivoting does the reverse.</p>
-<h3 id="json-handling-jsonb-in-postgresql"><strong>JSON Handling (<code>JSONB</code>, <code>-&gt;</code>, <code>-&gt;&gt;</code>, <code>#&gt;</code> in PostgreSQL)</strong></h3>
-<p>PostgreSQL supports querying JSON data stored in columns.</p>
-<p><strong>Example: Extracting JSON fields</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">data</span><span class="o">-&gt;</span><span class="s1">&#39;name&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">data</span><span class="o">-&gt;&gt;</span><span class="s1">&#39;status&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;active&#39;</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<hr />
-<h2 id="stored-procedures-triggers"><strong>Stored Procedures &amp; Triggers</strong></h2>
-<h3 id="creating-executing-stored-procedures"><strong>Creating &amp; Executing Stored Procedures</strong></h3>
-<p>Stored procedures allow reusable SQL logic execution.</p>
-<p><strong>Example: Creating a stored procedure</strong>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">UpdateSalary</span><span class="p">(</span><span class="k">IN</span><span class="w"> </span><span class="n">emp_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="n">new_salary</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
-<span class="k">LANGUAGE</span><span class="w"> </span><span class="k">SQL</span><span class="w"></span>
-<span class="k">AS</span><span class="w"> </span><span class="err">$$</span><span class="w"></span>
-<span class="w">    </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_salary</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">employee_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emp_id</span><span class="p">;</span><span class="w"></span>
-<span class="err">$$</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="using-triggers-for-automation"><strong>Using Triggers for Automation</strong></h3>
-<p>Triggers execute actions automatically based on events.</p>
-<p><strong>Example: Creating a trigger to update timestamps</strong>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">update_timestamp</span><span class="w"></span>
-<span class="k">BEFORE</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
-<span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span><span class="w"></span>
-<span class="k">EXECUTE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">update_modified_column</span><span class="p">();</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="cursors-loops"><strong>Cursors &amp; Loops</strong></h3>
-<p>Cursors iterate over query results within stored procedures.</p>
-<hr />
-<h2 id="nosql-features-in-sql-databases"><strong>NoSQL Features in SQL Databases</strong></h2>
-<h3 id="working-with-json-xml"><strong>Working with JSON &amp; XML</strong></h3>
-<p>Many relational databases support NoSQL-like JSON and XML processing.</p>
-<h3 id="full-text-search-tsvector-match-against"><strong>Full-Text Search (<code>tsvector</code>, <code>MATCH AGAINST</code>)</strong></h3>
-<p>Full-text search allows efficient searching within text fields.</p>
-<p><strong>Example: Using full-text search in PostgreSQL</strong>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">articles</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">to_tsvector</span><span class="p">(</span><span class="n">content</span><span class="p">)</span><span class="w"> </span><span class="o">@@</span><span class="w"> </span><span class="n">to_tsquery</span><span class="p">(</span><span class="s1">&#39;database&#39;</span><span class="p">);</span><span class="w"></span>
-</code></pre></div></p>
-<hr />
-<h2 id="security-best-practices"><strong>Security &amp; Best Practices</strong></h2>
-<h3 id="sql-injection-prevention"><strong>SQL Injection Prevention</strong></h3>
-<p>Use prepared statements to prevent SQL injection.</p>
-<p><strong>Example: Using a parameterized query in PostgreSQL</strong>
-<div class="highlight"><pre><span></span><code><span class="k">PREPARE</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="s1">&#39;SELECT * FROM users WHERE username = $1&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">EXECUTE</span><span class="w"> </span><span class="n">stmt</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">);</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="role-based-access-control-grant-revoke"><strong>Role-Based Access Control (<code>GRANT</code>, <code>REVOKE</code>)</strong></h3>
-<p>Restrict access by assigning roles.</p>
-<p><strong>Example: Granting read-only access</strong>
-<div class="highlight"><pre><span></span><code><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">readonly_user</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="data-encryption-hashing-md5-sha256"><strong>Data Encryption &amp; Hashing (<code>MD5()</code>, <code>SHA256()</code>)</strong></h3>
-<p>Encryption and hashing protect sensitive data.</p>
-<p><strong>Example: Storing hashed passwords</strong>
-<div class="highlight"><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SHA256</span><span class="p">(</span><span class="s1">&#39;mysecurepassword&#39;</span><span class="p">);</span><span class="w"></span>
-</code></pre></div></p>
-<hr />
-<p>These advanced SQL concepts help in optimizing, securing, and extending database functionality.</p>
-<hr />
 
               
             </article>
@@ -1630,7 +1187,7 @@ If an error occurs, <code>ROLLBACK</code> prevents invalid changes.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../db_sqljoin/" class="md-footer__link md-footer__link--prev" aria-label="Previous: JOIN" rel="prev">
+        <a href="../db_sqlindex/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Index" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1639,20 +1196,20 @@ If an error occurs, <code>ROLLBACK</code> prevents invalid changes.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              JOIN
+              Index
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../nosql/db_redis/" class="md-footer__link md-footer__link--next" aria-label="Next: Redis🔥" rel="next">
+        <a href="../db_sqladv2/" class="md-footer__link md-footer__link--next" aria-label="Next: Various" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Redis🔥
+              Various
             </div>
           </div>
           <div class="md-footer__button md-icon">
