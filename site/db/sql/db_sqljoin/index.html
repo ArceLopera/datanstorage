@@ -594,6 +594,27 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#left-excluding-join-left-join-with-a-where-clause" class="md-nav__link">
+    Left Excluding JOIN (LEFT JOIN with a WHERE clause)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#right-excluding-join-right-join-with-a-where-clause" class="md-nav__link">
+    Right Excluding JOIN (RIGHT JOIN with a WHERE clause)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outer-excluding-join-full-join-with-a-where-clause" class="md-nav__link">
+    Outer Excluding JOIN (FULL JOIN with a WHERE clause)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#self-join-joining-a-table-to-itself" class="md-nav__link">
     SELF JOIN – Joining a Table to Itself
   </a>
@@ -927,6 +948,27 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#left-excluding-join-left-join-with-a-where-clause" class="md-nav__link">
+    Left Excluding JOIN (LEFT JOIN with a WHERE clause)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#right-excluding-join-right-join-with-a-where-clause" class="md-nav__link">
+    Right Excluding JOIN (RIGHT JOIN with a WHERE clause)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outer-excluding-join-full-join-with-a-where-clause" class="md-nav__link">
+    Outer Excluding JOIN (FULL JOIN with a WHERE clause)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#self-join-joining-a-table-to-itself" class="md-nav__link">
     SELF JOIN – Joining a Table to Itself
   </a>
@@ -1002,27 +1044,58 @@
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">departments</span><span class="p">.</span><span class="n">dept_name</span><span class="w"></span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
 <span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">departments</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">department_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">departments</span><span class="p">.</span><span class="n">department_id</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
+</code></pre></div>
+<img alt="innerjoin" src="../../../img/innerjoin.png" /></p>
 <h3 id="left-join-right-join-including-unmatched-records"><strong>LEFT JOIN / RIGHT JOIN – Including Unmatched Records</strong></h3>
 <p>The <code>LEFT JOIN</code> returns all records from the left table and matching records from the right table. If no match exists, <code>NULL</code> is returned.</p>
 <p><strong>Example: Retrieve all employees, even if they have no department</strong>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">departments</span><span class="p">.</span><span class="n">dept_name</span><span class="w"></span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
 <span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">departments</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">department_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">departments</span><span class="p">.</span><span class="n">department_id</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
+</code></pre></div>
+<img alt="leftjoin" src="../../../img/leftjoin.png" /></p>
 <p>The <code>RIGHT JOIN</code> does the opposite, returning all records from the right table and matching ones from the left.</p>
 <p><strong>Example: Retrieve all departments, even if they have no employees</strong>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">departments</span><span class="p">.</span><span class="n">dept_name</span><span class="w"></span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
 <span class="k">RIGHT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">departments</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">department_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">departments</span><span class="p">.</span><span class="n">department_id</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
+</code></pre></div>
+<img alt="rightjoin" src="../../../img/rightjoin.png" /></p>
 <h3 id="full-outer-join-combining-everything"><strong>FULL OUTER JOIN – Combining Everything</strong></h3>
 <p>The <code>FULL OUTER JOIN</code> returns all records from both tables, with <code>NULL</code> for non-matching records.</p>
 <p><strong>Example: Retrieve all employees and departments, showing unmatched ones</strong>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">departments</span><span class="p">.</span><span class="n">dept_name</span><span class="w"></span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
 <span class="k">FULL</span><span class="w"> </span><span class="k">OUTER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">departments</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">department_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">departments</span><span class="p">.</span><span class="n">department_id</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
+</code></pre></div>
+<img alt="fulljoin" src="../../../img/outerjoin.png" /></p>
+<h3 id="left-excluding-join-left-join-with-a-where-clause">Left Excluding JOIN (LEFT JOIN with a WHERE clause)</h3>
+<p>This query will return all of the records in the left table (table A) that do not match any records in the right table (table B).</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">select_list</span><span class="o">&gt;</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Table_A</span><span class="w"> </span><span class="n">A</span><span class="w"></span>
+<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Table_B</span><span class="w"> </span><span class="n">B</span><span class="w"></span>
+<span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="k">Key</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"></span>
+</code></pre></div>
+<p><img alt="leftexcjoin" src="../../../img/leftexcludingjoin.png" /></p>
+<h3 id="right-excluding-join-right-join-with-a-where-clause">Right Excluding JOIN (RIGHT JOIN with a WHERE clause)</h3>
+<p>This query will return all of the records in the right table (table B) that do not match any records in the left table (table A).</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">select_list</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Table_A</span><span class="w"> </span><span class="n">A</span><span class="w"></span>
+<span class="k">RIGHT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Table_B</span><span class="w"> </span><span class="n">B</span><span class="w"></span>
+<span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="k">Key</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"></span>
+</code></pre></div>
+<img alt="rightexcjoin" src="../../../img/rightexcludingjoin.png" /></p>
+<h3 id="outer-excluding-join-full-join-with-a-where-clause">Outer Excluding JOIN (FULL JOIN with a WHERE clause)</h3>
+<p>This query will return all of the records in the left table (table A) and all of the records in the right table (table B) that do not match.</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">select_list</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Table_A</span><span class="w"> </span><span class="n">A</span><span class="w"></span>
+<span class="k">FULL</span><span class="w"> </span><span class="k">OUTER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Table_B</span><span class="w"> </span><span class="n">B</span><span class="w"></span>
+<span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="k">Key</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="k">Key</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"></span>
+</code></pre></div>
+<img alt="outerexcjoin" src="../../../img/outerexcludingjoin.png" /></p>
 <h3 id="self-join-joining-a-table-to-itself"><strong>SELF JOIN – Joining a Table to Itself</strong></h3>
 <p>A <code>SELF JOIN</code> is used to compare rows within the same table.</p>
 <p><strong>Example: Find employees and their managers (both stored in the <code>employees</code> table)</strong>

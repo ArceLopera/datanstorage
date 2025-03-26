@@ -10,6 +10,7 @@ SELECT employees.first_name, employees.last_name, departments.dept_name
 FROM employees
 INNER JOIN departments ON employees.department_id = departments.department_id;
 ```
+![innerjoin](../../img/innerjoin.png)
 
 ### **LEFT JOIN / RIGHT JOIN – Including Unmatched Records**
 The `LEFT JOIN` returns all records from the left table and matching records from the right table. If no match exists, `NULL` is returned.
@@ -20,6 +21,7 @@ SELECT employees.first_name, employees.last_name, departments.dept_name
 FROM employees
 LEFT JOIN departments ON employees.department_id = departments.department_id;
 ```
+![leftjoin](../../img/leftjoin.png)
 
 The `RIGHT JOIN` does the opposite, returning all records from the right table and matching ones from the left.
 
@@ -29,6 +31,7 @@ SELECT employees.first_name, employees.last_name, departments.dept_name
 FROM employees
 RIGHT JOIN departments ON employees.department_id = departments.department_id;
 ```
+![rightjoin](../../img/rightjoin.png)
 
 ### **FULL OUTER JOIN – Combining Everything**
 The `FULL OUTER JOIN` returns all records from both tables, with `NULL` for non-matching records.
@@ -39,6 +42,48 @@ SELECT employees.first_name, employees.last_name, departments.dept_name
 FROM employees
 FULL OUTER JOIN departments ON employees.department_id = departments.department_id;
 ```
+![fulljoin](../../img/outerjoin.png)
+
+### Left Excluding JOIN (LEFT JOIN with a WHERE clause)
+
+This query will return all of the records in the left table (table A) that do not match any records in the right table (table B).
+
+```sql
+SELECT <select_list> 
+FROM Table_A A
+LEFT JOIN Table_B B
+ON A.Key = B.Key
+WHERE B.Key IS NULL
+```
+
+![leftexcjoin](../../img/leftexcludingjoin.png)
+
+### Right Excluding JOIN (RIGHT JOIN with a WHERE clause)
+
+This query will return all of the records in the right table (table B) that do not match any records in the left table (table A).
+
+```sql
+SELECT <select_list>
+FROM Table_A A
+RIGHT JOIN Table_B B
+ON A.Key = B.Key
+WHERE A.Key IS NULL
+```
+![rightexcjoin](../../img/rightexcludingjoin.png)
+
+### Outer Excluding JOIN (FULL JOIN with a WHERE clause)
+
+This query will return all of the records in the left table (table A) and all of the records in the right table (table B) that do not match.
+
+```sql
+SELECT <select_list>
+FROM Table_A A
+FULL OUTER JOIN Table_B B
+ON A.Key = B.Key
+WHERE A.Key IS NULL OR B.Key IS NULL
+```
+![outerexcjoin](../../img/outerexcludingjoin.png)
+
 
 ### **SELF JOIN – Joining a Table to Itself**
 A `SELF JOIN` is used to compare rows within the same table.
