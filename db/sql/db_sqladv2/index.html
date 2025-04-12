@@ -681,6 +681,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#coalesce" class="md-nav__link">
+    COALESCE()
+  </a>
+  
+    <nav class="md-nav" aria-label="COALESCE()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-case-default-values" class="md-nav__link">
+    Use Case: Default Values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coalesce-vs-isnull-or-ifnull" class="md-nav__link">
+    COALESCE() vs ISNULL() or IFNULL()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-in-aggregations" class="md-nav__link">
+    Use in Aggregations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -871,6 +905,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#coalesce" class="md-nav__link">
+    COALESCE()
+  </a>
+  
+    <nav class="md-nav" aria-label="COALESCE()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-case-default-values" class="md-nav__link">
+    Use Case: Default Values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coalesce-vs-isnull-or-ifnull" class="md-nav__link">
+    COALESCE() vs ISNULL() or IFNULL()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-in-aggregations" class="md-nav__link">
+    Use in Aggregations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -912,6 +980,130 @@
 <p><strong>Example: Extracting JSON fields</strong>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">data</span><span class="o">-&gt;</span><span class="s1">&#39;name&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">data</span><span class="o">-&gt;&gt;</span><span class="s1">&#39;status&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;active&#39;</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></p>
+<hr />
+<p>Sure! Here's a clear and practical tutorial for using <code>COALESCE</code> in SQL, suitable for beginners and intermediates:</p>
+<hr />
+<h2 id="coalesce"><code>COALESCE()</code></h2>
+<p>The <code>COALESCE()</code> function in SQL returns the <strong>first non-null value</strong> from a list of expressions.</p>
+<p>Useful when you're dealing with columns that may contain <code>NULL</code> values and you want to display something instead — like a default value or a fallback from another column.</p>
+<hr />
+<div class="highlight"><pre><span></span><code><span class="k">COALESCE</span><span class="p">(</span><span class="n">expression1</span><span class="p">,</span><span class="w"> </span><span class="n">expression2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">expressionN</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li>It checks each expression <strong>from left to right</strong>.</li>
+<li>Returns the <strong>first non-null</strong> value it finds.</li>
+<li>If <strong>all</strong> expressions are <code>NULL</code>, it returns <code>NULL</code>.</li>
+</ul>
+<hr />
+<p>Let's say you have a <code>users</code> table:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>first_name</th>
+<th>nickname</th>
+<th>username</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>John</td>
+<td>NULL</td>
+<td>johnny123</td>
+</tr>
+<tr>
+<td>2</td>
+<td>NULL</td>
+<td>Sam</td>
+<td>sam2023</td>
+</tr>
+<tr>
+<td>3</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>guest001</td>
+</tr>
+</tbody>
+</table>
+<p>You want to display the <strong>best name available</strong> in this order:
+<code>nickname → first_name → username</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span>
+<span class="w">  </span><span class="n">id</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">nickname</span><span class="p">,</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">username</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">display_name</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p><strong>Result:</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>display_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>John</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Sam</td>
+</tr>
+<tr>
+<td>3</td>
+<td>guest001</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="use-case-default-values">Use Case: Default Values</h3>
+<p>Let’s say a column can be <code>NULL</code>, but you want to replace it with a default string:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span>
+<span class="w">  </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;no-email@example.com&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">user_email</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>This ensures you never show a <code>NULL</code> — instead, you show a safe placeholder.</p>
+<hr />
+<h3 id="coalesce-vs-isnull-or-ifnull"><code>COALESCE()</code> vs <code>ISNULL()</code> or <code>IFNULL()</code></h3>
+<ul>
+<li><code>COALESCE()</code> is <strong>standard SQL</strong> and portable across databases.</li>
+<li><code>ISNULL()</code> is specific to <strong>SQL Server</strong>.</li>
+<li><code>IFNULL()</code> is used in <strong>MySQL</strong> and <strong>SQLite</strong>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">-- SQL Server</span>
+<span class="k">ISNULL</span><span class="p">(</span><span class="k">column</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;default&#39;</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">-- MySQL / SQLite</span>
+<span class="n">IFNULL</span><span class="p">(</span><span class="k">column</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;default&#39;</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">-- Standard SQL (works everywhere)</span>
+<span class="k">COALESCE</span><span class="p">(</span><span class="k">column</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;default&#39;</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<hr />
+<h3 id="use-in-aggregations">Use in Aggregations</h3>
+<p>Imagine you’re summing order amounts, but some values are <code>NULL</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span>
+<span class="w">  </span><span class="n">customer_id</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="k">SUM</span><span class="p">(</span><span class="k">COALESCE</span><span class="p">(</span><span class="n">order_total</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_spent</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">orders</span><span class="w"></span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">customer_id</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>This avoids <code>NULL</code> values skewing your totals.</p>
+<hr />
+<ul>
+<li><code>COALESCE()</code> returns the <strong>first non-null</strong> value.</li>
+<li>Great for fallback logic and cleaner results.</li>
+<li>Cross-database friendly.</li>
+</ul>
+<hr />
+<p><strong>When to Use It</strong></p>
+<ul>
+<li>Displaying fallback values</li>
+<li>Cleaning up NULLs in output</li>
+<li>Creating user-friendly reports</li>
+<li>Providing default values for calculations</li>
+</ul>
 <hr />
 
               
