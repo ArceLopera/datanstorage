@@ -627,15 +627,63 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ctes-with-clause-for-readability" class="md-nav__link">
-    CTEs (WITH clause for readability)
+  <a href="#what-is-a-cte-common-table-expression" class="md-nav__link">
+    What is a CTE (Common Table Expression)?
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#recursive-ctes" class="md-nav__link">
-    Recursive CTEs
+  <a href="#why-use-ctes" class="md-nav__link">
+    Why Use CTEs?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-cte-usage" class="md-nav__link">
+    Types of CTE Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of CTE Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-cte" class="md-nav__link">
+    Simple CTE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chained-multiple-ctes" class="md-nav__link">
+    Chained / Multiple CTEs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursive-cte" class="md-nav__link">
+    Recursive CTE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cte-with-dml-insertupdatedelete" class="md-nav__link">
+    CTE with DML (INSERT/UPDATE/DELETE)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cte-vs-subquery" class="md-nav__link">
+    CTE vs Subquery
   </a>
   
 </li>
@@ -865,15 +913,63 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ctes-with-clause-for-readability" class="md-nav__link">
-    CTEs (WITH clause for readability)
+  <a href="#what-is-a-cte-common-table-expression" class="md-nav__link">
+    What is a CTE (Common Table Expression)?
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#recursive-ctes" class="md-nav__link">
-    Recursive CTEs
+  <a href="#why-use-ctes" class="md-nav__link">
+    Why Use CTEs?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-cte-usage" class="md-nav__link">
+    Types of CTE Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of CTE Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-cte" class="md-nav__link">
+    Simple CTE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chained-multiple-ctes" class="md-nav__link">
+    Chained / Multiple CTEs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursive-cte" class="md-nav__link">
+    Recursive CTE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cte-with-dml-insertupdatedelete" class="md-nav__link">
+    CTE with DML (INSERT/UPDATE/DELETE)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cte-vs-subquery" class="md-nav__link">
+    CTE vs Subquery
   </a>
   
 </li>
@@ -907,8 +1003,32 @@
 <span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
 <span class="k">WHERE</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">);</span><span class="w"></span>
 </code></pre></div></p>
-<h3 id="ctes-with-clause-for-readability"><strong>CTEs (<code>WITH</code> clause for readability)</strong></h3>
-<p>Common Table Expressions (CTEs) improve query readability by defining temporary result sets.</p>
+<hr />
+<h3 id="what-is-a-cte-common-table-expression">What is a CTE (Common Table Expression)?</h3>
+<p>A <strong>CTE</strong> is a temporary, named result set that you can reference within a <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> statement.<br />
+It exists only during the execution of the query — think of it like a temporary view that you can use just within that query.</p>
+<h3 id="why-use-ctes">Why Use CTEs?</h3>
+<ul>
+<li>Improve <strong>readability</strong> and <strong>organization</strong> for complex queries.</li>
+<li>Avoid repeating the same subquery multiple times.</li>
+<li>Enable <strong>recursive queries</strong>.</li>
+<li>Break down complicated queries into logical, easy-to-read sections.</li>
+</ul>
+<hr />
+<h3 id="types-of-cte-usage">Types of CTE Usage</h3>
+<h4 id="simple-cte"><strong>Simple CTE</strong></h4>
+<p>Used to structure a subquery in a readable way.</p>
+<div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="n">sales_total</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">sales</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_sales</span><span class="w"></span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="w"></span>
+<span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">employee_id</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">sales_total</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">total_sales</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5000</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p><strong>CTEs (<code>WITH</code> clause for readability)</strong>
+Common Table Expressions (CTEs) improve query readability by defining temporary result sets.</p>
 <p><strong>Example: Using a CTE to list high-salary employees</strong>
 <div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="n">HighEarners</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
 <span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="w"></span>
@@ -917,7 +1037,36 @@
 <span class="p">)</span><span class="w"></span>
 <span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">HighEarners</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></p>
-<h3 id="recursive-ctes"><strong>Recursive CTEs</strong></h3>
+<hr />
+<h4 id="chained-multiple-ctes"><strong>Chained / Multiple CTEs</strong></h4>
+<p>You can define multiple CTEs at once.</p>
+<div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="n">cte1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="p">),</span><span class="w"></span>
+<span class="n">cte2</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">cte1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Electronics&#39;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">cte2</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<hr />
+<h4 id="recursive-cte"><strong>Recursive CTE</strong></h4>
+<p>When a CTE refers to itself — useful for hierarchical or tree-like data (like org charts or category trees).</p>
+<h5 id="example-counting-down-from-5">Example: Counting down from 5</h5>
+<div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="k">RECURSIVE</span><span class="w"> </span><span class="n">countdown</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">number</span><span class="w"></span>
+<span class="w">    </span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span><span class="w"></span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="nb">number</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">countdown</span><span class="w"></span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="nb">number</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">countdown</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><code>UNION ALL</code> is required in recursive CTEs.</li>
+<li>The first <code>SELECT</code> is the <strong>anchor member</strong>.</li>
+<li>The second <code>SELECT</code> is the <strong>recursive member</strong>.</li>
+<li><code>WHERE</code> clause limits recursion.</li>
+</ul>
 <p>Recursive CTEs are used to handle hierarchical data such as organizational structures.</p>
 <p><strong>Example: Retrieve an employee hierarchy</strong>
 <div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="k">RECURSIVE</span><span class="w"> </span><span class="n">EmployeeHierarchy</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
@@ -931,6 +1080,63 @@
 <span class="p">)</span><span class="w"></span>
 <span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">EmployeeHierarchy</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></p>
+<hr />
+<h3 id="cte-with-dml-insertupdatedelete"><strong>CTE with DML (INSERT/UPDATE/DELETE)</strong></h3>
+<p>You can use CTEs to simplify data modifications.</p>
+<h5 id="example-updating-top-salespeople">Example: Updating top salespeople</h5>
+<div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="n">top_sales</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">employee_id</span><span class="w"></span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="w"></span>
+<span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">employee_id</span><span class="w"></span>
+<span class="w">    </span><span class="k">HAVING</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">sales</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5000</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
+<span class="k">SET</span><span class="w"> </span><span class="n">bonus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">employee_id</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">employee_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">top_sales</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<hr />
+<h3 id="cte-vs-subquery">CTE vs Subquery</h3>
+<table>
+<thead>
+<tr>
+<th align="left">CTE</th>
+<th align="left">Subquery</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Improves readability for complex queries</td>
+<td align="left">Can get nested and hard to read</td>
+</tr>
+<tr>
+<td align="left">Can be recursive</td>
+<td align="left">Cannot be recursive</td>
+</tr>
+<tr>
+<td align="left">Can be referenced multiple times in the same query</td>
+<td align="left">Must be repeated for multiple uses</td>
+</tr>
+<tr>
+<td align="left">Exists only during the query execution</td>
+<td align="left">Exists only within its surrounding query</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<ul>
+<li>CTEs <strong>don’t persist</strong> — they’re temporary.</li>
+<li>Available in most modern RDBMS systems: PostgreSQL, SQL Server, Oracle, MySQL 8+, etc.</li>
+<li>You can <strong>nest CTEs</strong> and even use them in <code>JOIN</code>s.</li>
+</ul>
+<hr />
+<p><strong>Summary</strong></p>
+<p>CTEs are:</p>
+<ul>
+<li><strong>Temporary, named query results</strong></li>
+<li>Great for <strong>breaking down complex queries</strong></li>
+<li>Essential for <strong>recursive operations</strong></li>
+<li>Often improve <strong>query clarity and maintainability</strong></li>
+</ul>
 <hr />
 
               
