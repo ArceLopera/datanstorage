@@ -112,6 +112,136 @@ Common SQL data types include:
 - `DATE` – Stores date values (e.g., `hire_date DATE`)
 - `DECIMAL(m,d)` – Decimal numbers with `m` digits and `d` decimal places (e.g., `salary DECIMAL(10,2)`)
 
+SQL data types define the kind of data that can be stored in a table column. While exact data types can vary slightly between SQL dialects (e.g., MySQL, PostgreSQL, SQL Server, Oracle), here’s a comprehensive overview of the **main categories** of SQL data types used across most systems:
+
+---
+
+### **Numeric Data Types**
+
+Used for storing numbers:
+
+#### Integer Types:
+
+| Type            | Description                              |
+| --------------- | ---------------------------------------- |
+| `TINYINT`       | Very small integers (e.g., -128 to 127)  |
+| `SMALLINT`      | Small integers (e.g., -32,768 to 32,767) |
+| `MEDIUMINT`     | Medium integers (MySQL specific)         |
+| `INT`/`INTEGER` | Standard integer                         |
+| `BIGINT`        | Very large integers                      |
+
+#### Decimal/Fixed-point Types:
+
+| Type                                                 | Description                                               |
+| ---------------------------------------------------- | --------------------------------------------------------- |
+| `DECIMAL(p,s)` / `NUMERIC(p,s)`                      | Exact numeric values with precision (`p`) and scale (`s`) |
+| `p` = total digits, `s` = digits after decimal point |                                                           |
+
+#### Floating-point Types:
+
+| Type                          | Description                            |
+| ----------------------------- | -------------------------------------- |
+| `FLOAT`                       | Approximate floating-point number      |
+| `REAL`                        | Higher precision floating-point number |
+| `DOUBLE` / `DOUBLE PRECISION` | Even more precision                    |
+
+---
+
+### **String/Text Data Types**
+
+Used for storing characters, text, or binary data.
+
+#### Character Types:
+
+| Type         | Description                                         |
+| ------------ | --------------------------------------------------- |
+| `CHAR(n)`    | Fixed-length string (padded with spaces if shorter) |
+| `VARCHAR(n)` | Variable-length string, up to `n` characters        |
+
+#### Text/Large Object Types:
+
+| Type                                   | Description                              |
+| -------------------------------------- | ---------------------------------------- |
+| `TEXT`                                 | Large text block (e.g., article content) |
+| `TINYTEXT` / `MEDIUMTEXT` / `LONGTEXT` | Different sizes in MySQL                 |
+| `CLOB`                                 | Character Large Object (Oracle/DB2)      |
+
+#### Binary Data Types:
+
+| Type           | Description                                |
+| -------------- | ------------------------------------------ |
+| `BINARY(n)`    | Fixed-length binary data                   |
+| `VARBINARY(n)` | Variable-length binary data                |
+| `BLOB`         | Binary Large Object (for images/files etc) |
+
+---
+
+### **Date and Time Data Types**
+
+Used to store date, time, or both.
+
+| Type        | Description                               |
+| ----------- | ----------------------------------------- |
+| `DATE`      | Stores a date (YYYY-MM-DD)                |
+| `TIME`      | Stores a time (HH\:MM\:SS)                |
+| `DATETIME`  | Stores both date and time                 |
+| `TIMESTAMP` | Stores date and time, often auto-updating |
+| `YEAR`      | Stores a year (MySQL only)                |
+| `INTERVAL`  | (PostgreSQL) Time intervals               |
+
+---
+
+### **Boolean Type**
+
+| Type                                   | Description          |
+| -------------------------------------- | -------------------- |
+| `BOOLEAN` / `BOOL`                     | Stores TRUE or FALSE |
+| (MySQL uses TINYINT(1) under the hood) |                      |
+
+---
+
+### **UUID / Unique Identifiers**
+
+Used for globally unique values:
+
+| Type               | Description                   |
+| ------------------ | ----------------------------- |
+| `UUID`             | Universally Unique Identifier |
+| `UNIQUEIDENTIFIER` | Used in SQL Server            |
+
+---
+
+### **JSON and XML**
+
+For structured data:
+
+| Type   | Description                               |
+| ------ | ----------------------------------------- |
+| `JSON` | Stores JSON-formatted strings             |
+| `XML`  | Stores XML documents (SQL Server, Oracle) |
+
+---
+
+### **Spatial / Geographic Types**
+
+For storing geolocation data (supported in systems like PostgreSQL with PostGIS, MySQL):
+
+| Type                                   | Description                     |
+| -------------------------------------- | ------------------------------- |
+| `GEOMETRY`                             | Base type for all geometry data |
+| `POINT`, `LINESTRING`, `POLYGON`, etc. | Specific shapes                 |
+
+---
+
+### **Other Special Types**
+
+* `ENUM('value1', 'value2', ...)`: Set of predefined values (MySQL)
+* `SET`: A string object that can store zero or more values from a list (MySQL)
+* `ARRAY`: A collection of values (PostgreSQL)
+* `MONEY` / `SMALLMONEY`: Currency data (SQL Server)
+
+---
+
 ## **Filtering Data**  
 
 ### `WHERE` – Conditional Filtering  

@@ -102,9 +102,10 @@ nav:
               - Basic SQL Commands: db/sql/db_sqlbasic.md
               - JOIN: db/sql/db_sqljoin.md
           - Advanced:
-              - Subqueries: db/sql/db_sqlsubquery.md
+              - Subqueries & CTE: db/sql/db_sqlsubquery.md
               - Index: db/sql/db_sqlindex.md
               - ACID: db/sql/db_sqlacid.md
+              - Regex: db/sql/db_regex.md
               - Various: db/sql/db_sqladv2.md
               - More: db/sql/db_sqlproc.md
       - NoSQL:
