@@ -2,92 +2,92 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://arcelopera.github.io/datanstorage/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/ai_frameworks/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db/db_basic/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db/nosql/db_redis/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db/sql/db_mysql/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db/sql/db_odbc/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db/sql/db_postgresql/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db/sql/db_regex/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db/sql/db_sql/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db/sql/db_sqlacid/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db/sql/db_sqladv2/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db/sql/db_sqlbasic/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db/sql/db_sqlindex/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db/sql/db_sqlinstall/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db/sql/db_sqlite/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db/sql/db_sqljoin/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db/sql/db_sqlproc/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://arcelopera.github.io/datanstorage/db/sql/db_sqlsubquery/</loc>
-         <lastmod>2025-04-22</lastmod>
+         <lastmod>2025-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
